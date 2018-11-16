@@ -12,6 +12,17 @@ def parse_args():
     args = parser.parse_args()
     return args
 
+def get_vecs_from_sentence(sentence, word_dict):
+    temp = []
+
+    for word in re.findall(r"[\w]+|[^\s\w]", sentence):
+        curr = word_dict.get(word.lower())
+
+        if curr is None:
+            return None
+        temp.append(curr)
+    return np.array(temp)
+
 def parse_data(data):
     in_file = open(data)
 
@@ -27,4 +38,4 @@ if __name__ == "__main__":
     args = parse_args()
 
     sentences = parse_data(args.training_file)
-    print(sentences[2][1])
+    create_vectors(sentences)
