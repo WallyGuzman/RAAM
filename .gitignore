@@ -104,4 +104,4 @@ venv.bak/
 .mypy_cache/
 
 # Large files
-data/
+data/wiki-news-300d-1M.vec

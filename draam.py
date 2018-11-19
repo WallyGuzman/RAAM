@@ -11,14 +11,34 @@ import re
 import math
 from scipy import spatial
 
+
+# Dynamic template used from here:
+# https://github.com/jcjohnson/pytorch-examples#pytorch-control-flow--weight-sharing
+class DynamicRAAM(torch.nn.Module):
+    def __init__(self, D_in, H, D_out):
+        super(DynamicRAAM, self).__init__()
+        self.x = 0
+
+    def forward(self, x):
+        y_pred = 0
+        return y_pred
+
 def main(learning_rate):
     word_vector_size = 300
     input_size = 2 * word_vector_size
     num_epochs = 500
     # PyTorch stuff
 
+    print("Vector size: %d, with padding: %d" % (word_vector_size, padding))
+    print("Learning rate: %f" % learning_rate)
+
     vectors = "data/wiki-news-300d-1M.vec"
     corpus = "data/austen.txt"
+
+    x = torch.randn(N, D_in)
+    y = torch.randn(N, D_out)
+
+    model = DynamicRAAM(D_in, H, D_out)
 
 
 def build_encoder(inputs):
