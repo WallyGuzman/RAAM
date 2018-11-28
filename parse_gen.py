@@ -12,8 +12,9 @@ def parse_args():
 
     parser.add_argument('-n', '--num-sent', type=int, default=10, help='number of sentences')
     parser.add_argument('-d', '--max_depth', type=int, default=4, help='maximum depth')
-    parser.add_argument('-g', '--grammar-file', type=str, default='gram_file.txt', help='grammar file')
+    parser.add_argument('-g', '--grammar-file', type=str, default='grammars/gram_file_simple.txt', help='grammar file')
     parser.add_argument('-o', '--output-file', type=argparse.FileType('w'), default=sys.stdout, help='generated file')
+    parser.add_argument('-v', '--verbose', action="store_true", help="verbose flag")
     
     args = parser.parse_args()
     return args
@@ -25,6 +26,10 @@ def generate_sentences(args):
         grammar_string = gram_file.read()
 
     grammar = CFG.fromstring(grammar_string)
+
+    if args.verbose:
+        print(grammar)
+        print()
 
     for sentence in generate(grammar, n=args.num_sent):
         yield sentence
