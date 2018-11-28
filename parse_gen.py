@@ -31,7 +31,12 @@ def generate_sentences(args):
         print(grammar)
         print()
 
-    for sentence in generate(grammar, n=args.num_sent):
+    if args.max_depth > 4:
+        gen = generate(grammar, depth=args.max_depth)
+    else:
+        gen = generate(grammar, n=args.num_sent)
+
+    for sentence in gen:
         yield sentence
 
 if __name__ == "__main__":

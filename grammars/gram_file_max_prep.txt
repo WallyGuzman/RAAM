@@ -1,0 +1,7 @@
+    S -> NP VP
+    NP -> Det N
+    PP -> P NP | P NP PP
+    VP -> 'saw' NP | 'walked' PP | 'heard' NP | 'ran' PP | 'smelled' NP | 'jogged' PP
+    Det -> 'the' | 'a'
+    N -> 'man' | 'park' | 'dog' | 'cat' | 'house' | 'woman'
+    P -> 'about' | 'above' | 'across' | 'after' | 'against' | 'among' | 'around' | 'at' | 'before' | 'behind' | 'below' | 'beside' | 'between' | 'by' | 'down' | 'during' | 'except' | 'for' | 'from' | 'in' | 'inside' | 'into' | 'near' | 'of' | 'off' | 'on' | 'out' | 'over' | 'through' | 'to' | 'toward' | 'under' | 'up' | 'with'
