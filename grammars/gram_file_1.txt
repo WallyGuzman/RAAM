@@ -1,7 +1,8 @@
-    S -> NP VP
+    S -> NP VP E
     NP -> Det N
     PP -> P NP | P NP PP
     VP -> 'saw' NP | 'walked' PP
     Det -> 'the' | 'a'
     N -> 'man' | 'park' | 'dog'
     P -> 'in' | 'with'
+    E -> '.'

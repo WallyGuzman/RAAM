@@ -106,3 +106,4 @@ for i in range(20000, 25000):
         print("reconstructed? " + str(good))
         if good:
 print(answer)
+sess.close()

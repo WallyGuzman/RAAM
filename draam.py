@@ -5,22 +5,25 @@ import numpy as np
 import random
 import nltk.data
 import re
+import sys
+import argparse
 import math
 from scipy import spatial
 
 
-def main(learning_rate):
-    word_vector_size = 300
+def main(args):
+    word_vector_size = args.vec_dim
     padding = word_vector_size // 2
     input_size = 2 * (word_vector_size + padding)
     num_epochs = 500
     sen_len = 32
+    learning_rate = args.lr
 
     print("Vector size: %d, with padding: %d" % (word_vector_size, padding))
     print("Learning rate: %f" % learning_rate)
 
-    vectors = "data/wiki-news-300d-1M.vec"  # File of word vectors
-    corpus = "data/austen.txt"
+    vectors = args.vec_file # File of word vectors
+    corpus = args.training_file
 
     original_sentence = tf.placeholder(tf.float32, [None, sen_len, word_vector_size + padding])
     ingest = original_sentence
@@ -71,12 +74,13 @@ def main(learning_rate):
 
     # use 4/5 of the sentences to train, and 1/5 to validate
     cut = (4 * len(sentence_dict.values())) // 5
-    training_data = sentence_dict.values()[0:cut]
-    testing_data = sentence_dict.values()[cut:]
+    training_data = list(sentence_dict.values())[0:cut]
+    testing_data = list(sentence_dict.values())[cut:]
 
     # Where the magic happens
     train(sess, train_step, np.array(training_data), loss, num_epochs, ingest, egest, original_sentence)
     test(sess, np.array(testing_data), loss, ingest, egest, original_sentence)
+    sess.close()
 
 
 def build_encoder(inputs):
@@ -156,7 +160,7 @@ def parse_word_vecs(vectors, vec_size, pad):
 def parse_sentences(corpus):
     with open(corpus) as fp:
         nltk.data.load('tokenizers/punkt/english.pickle')
-        sentences = nltk.sent_tokenize(fp.read().decode('utf-8'))
+        sentences = nltk.sent_tokenize(fp.read())
     return sentences
 
 
@@ -180,10 +184,24 @@ def test(sess, data, loss, ingest, egest, orig):
     print("cosine: " + str(result))
     print("Validation loss: " + str(test_loss))
 
+def parse_args():
+    parser = argparse.ArgumentParser(description='draam.py')
+
+    parser.add_argument('--lr', type=float, default=.001, help='learning rate')
+    parser.add_argument('--training-file', type=str, default='data/austen.txt', help='raw training data')
+    parser.add_argument('--vec-file', type=str, default='data/wiki-news-300d-1M.vec', help='word vector file')
+    parser.add_argument('--vec-dim', type=int, default=300, help='word vector dimension')
+    parser.add_argument('--verbose', action='store_true', help='verbose flag')
+
+    return parser.parse_args()
 
 if __name__ == "__main__":
-    learning_rate = .001
+    args = parse_args()
+
+    if args.verbose:
+        print(args)
+
     for i in range(10):
-        main(learning_rate)
+        main(args)
         tf.reset_default_graph()
-learning_rate *= 0.5
+        args.lr *= 0.5
