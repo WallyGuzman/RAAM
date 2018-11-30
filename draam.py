@@ -1,3 +1,4 @@
+# Adapted from: https://github.com/sethRait/RAAM/blob/master/draam.py
 # Recursiely encodes and decodes pairs of word vectors
 from __future__ import division
 import tensorflow as tf

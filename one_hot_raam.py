@@ -1,8 +1,35 @@
+# Adapted from: https://github.com/sethRait/RAAM/blob/master/one-hot-iterative-raam.py
 # Encodes and decodes pairs of one-hot vectors
 from __future__ import division
 import tensorflow as tf
 import numpy as np
 import random
+import argparse
+
+
+def main(args):
+    input_size = 52  # 2 letters, 26 bits each, 1-hot
+
+    input1 = tf.placeholder(tf.float32, [None, input_size / 2])  # first letter
+    input2 = tf.placeholder(tf.float32, [None, input_size / 2])  # second letter
+    input_full = tf.concat([input1, input2], 1)  # not 2None x 6
+
+    # layers
+    encoded = make_fc(input_full, input_size, "encoder", 1)
+    encoded2 = make_fc(encoded, 3 * input_size / 4, "second_hidden", 2)
+    encoded3 = make_fc(encoded2, input_size / 2, "third_hidden", 2)
+    decoded1 = make_fc(encoded3, 3 * input_size / 4, "decoder", 2)
+    decoded2 = make_fc(decoded1, input_size, "second_decoder", 1)
+
+    loss = tf.losses.mean_squared_error(labels=input_full, predictions=decoded2)
+    train_step = tf.train.GradientDescentOptimizer(0.003).minimize(loss)
+    sess = tf.InteractiveSession()
+    tf.global_variables_initializer().run()
+
+    training_set = generate_samples(input_size // 2)
+    train(sess, train_step, training_set, loss, decoded2, input1, input2)
+    test(sess, training_set, loss, decoded2, input1, input2)
+    sess.close()
 
 
 def make_fc(input_tensor, output_size, name, mode):
@@ -58,52 +85,51 @@ def good_or_bad(vec):
     return (True, out_vec)
 
 
-input_size = 52  # 2 letters, 26 bits each, 1-hot
+def train(sess, train_step, training_set, loss, decoded2, input1, input2):
+    # Training loop
+    for i in range(20000):
+        # inputs = training_set[i % len(training_set)]
+        x = np.array([training_set[j][0] for j in range(training_set.shape[0])])
+        y = np.array([training_set[j][1] for j in range(training_set.shape[0])])
+        random.shuffle(x)
+        random.shuffle(y)
 
-input1 = tf.placeholder(tf.float32, [None, input_size / 2])  # first letter
-input2 = tf.placeholder(tf.float32, [None, input_size / 2])  # second letter
-input_full = tf.concat([input1, input2], 1)  # not 2None x 6
+        #	_, my_loss, my_decoded, original = sess.run([train_step, loss, decoded2, input_full], feed_dict={input1:inputs[0]], input2:[inputs[1]]})
+        _, my_loss, _, = sess.run([train_step, loss, decoded2], feed_dict={input1: x, input2: y})
+        if i % 500 == 0:
+            print("epoch: " + str(i))
+            print("loss: " + str(my_loss))
 
-# layers
-encoded = make_fc(input_full, input_size, "encoder", 1)
-encoded2 = make_fc(encoded, 3 * input_size / 4, "second_hidden", 2)
-encoded3 = make_fc(encoded2, input_size / 2, "third_hidden", 2)
-decoded1 = make_fc(encoded3, 3 * input_size / 4, "decoder", 2)
-decoded2 = make_fc(decoded1, input_size, "second_decoder", 1)
+def test(sess, training_set, loss, decoded2, input1, input2):
+    # Testing loop
+    for i in range(20000, 25000):
+        x = np.array([training_set[j][0] for j in range(training_set.shape[0])])
+        y = np.array([training_set[j][1] for j in range(training_set.shape[0])])
+        random.shuffle(x)
+        random.shuffle(y)
 
-loss = tf.losses.mean_squared_error(labels=input_full, predictions=decoded2)
-train_step = tf.train.GradientDescentOptimizer(0.003).minimize(loss)
-sess = tf.InteractiveSession()
-tf.global_variables_initializer().run()
+        my_loss, my_decoded, = sess.run([loss, decoded2], feed_dict={input1: x, input2: y})
+        if i % 250 == 0:
+            print("loss: " + str(my_loss))
+            good, answer = good_or_bad(my_decoded)
+            print("reconstructed? " + str(good))
+            if good:
+                print(answer)
 
-training_set = generate_samples(input_size // 2)
+def parse_args():
+    parser = argparse.ArgumentParser(description='one_hot_raam.py')
 
-# Training loop
-for i in range(20000):
-    # inputs = training_set[i % len(training_set)]
-    x = np.array([training_set[j][0] for j in range(training_set.shape[0])])
-    y = np.array([training_set[j][1] for j in range(training_set.shape[0])])
-    random.shuffle(x)
-    random.shuffle(y)
+    parser.add_argument('--training-file', type=str, default='data/austen.txt', help='raw training data')
+    parser.add_argument('--verbose', action='store_true', help='verbose flag')
 
-    #	_, my_loss, my_decoded, original = sess.run([train_step, loss, decoded2, input_full], feed_dict={input1:inputs[0]], input2:[inputs[1]]})
-    _, my_loss, _, = sess.run([train_step, loss, decoded2], feed_dict={input1: x, input2: y})
-    if i % 500 == 0:
-        print("epoch: " + str(i))
-        print("loss: " + str(my_loss))
+    return parser.parse_args()
 
-# Testing loop
-for i in range(20000, 25000):
-    x = np.array([training_set[j][0] for j in range(training_set.shape[0])])
-    y = np.array([training_set[j][1] for j in range(training_set.shape[0])])
-    random.shuffle(x)
-    random.shuffle(y)
+if __name__ == "__main__":
+    args = parse_args()
 
-    my_loss, my_decoded, = sess.run([loss, decoded2], feed_dict={input1: x, input2: y})
-    if i % 250 == 0:
-        print("loss: " + str(my_loss))
-        good, answer = good_or_bad(my_decoded)
-        print("reconstructed? " + str(good))
-        if good:
-print(answer)
-sess.close()
+    if args.verbose:
+        print(args)
+
+    for i in range(10):
+        main(args)
+        tf.reset_default_graph()
