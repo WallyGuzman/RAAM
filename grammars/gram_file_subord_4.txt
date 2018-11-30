@@ -1,0 +1,10 @@
+    S -> NP VP E | NP VP SP E
+    NP -> Det N
+    PP -> P NP | P NP PP
+    VP -> 'saw' NP | 'walked' PP | 'heard' NP | 'ran' PP | 'smelled' NP | 'jogged' PP
+    SP -> Sub NP VP
+    Sub -> 'where' | 'when'
+    Det -> 'the' | 'a'
+    N -> 'man' | 'park' | 'dog' | 'cat' | 'house' | 'woman'
+    P -> 'in' | 'with' | 'to' | 'for' | 'from' | 'out'
+    E -> '.'
