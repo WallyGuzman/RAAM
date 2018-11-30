@@ -26,7 +26,13 @@ def main(args):
     sess = tf.InteractiveSession()
     tf.global_variables_initializer().run()
 
-    training_set = generate_samples(input_size // 2)
+    #training_set = generate_samples(input_size // 2)
+    training_set = parse_sentences("test.txt")
+
+    encs = produce_encodings("gram_file.txt")
+
+    enc_training_data("test.txt", encs, 6)
+
     train(sess, train_step, training_set, loss, decoded2, input1, input2)
     test(sess, training_set, loss, decoded2, input1, input2)
     sess.close()
@@ -66,6 +72,45 @@ def chunks(l, n):
     for i in range(0, len(l), n):
         yield l[i:i + n]
 
+# Returns a dictionary of word->encoding mappings
+def produce_encodings(grammar_file):
+    literals = []
+    in_file = open(grammar_file, "r")
+
+    for line in in_file:
+        litre = re.compile("\'[a-z|A-Z|0-9]+\'")
+        literals += ([re.sub("\'", '', item) for item in litre.findall(line)])
+
+    in_file.close()
+
+    total_len_enc = len(literals)
+    enc_mapping = {}
+
+    for iter, item in enumerate(literals):
+        temp = ''
+
+        for i in range(total_len_enc):
+            if i == iter:
+                temp += '1'
+            else:
+                temp += '0'
+
+        enc_mapping[item] = temp
+
+    return enc_mapping
+
+def enc_training_data(corpus, encs, max_sen_len):
+    in_file = open(corpus, "r")
+
+    len_enc = len(list(encs.values())[0])
+
+    for line in in_file:
+        tokens = line.split()
+        sen_encs = [encs[item] for item in tokens] + ['0' * len_enc] * (max_sen_len - len(tokens))
+
+    in_file.close()
+
+    return sen_encs
 
 ''' If the given vector (an np array) passes some terminal test, return the one-hot vector
  it most likely represents along with 'TRUE', else, return the given vector and 'FALSE'.'''
@@ -83,7 +128,6 @@ def good_or_bad(vec):
         else:
             return (False, vec)
     return (True, out_vec)
-
 
 def train(sess, train_step, training_set, loss, decoded2, input1, input2):
     # Training loop
