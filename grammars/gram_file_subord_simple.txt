@@ -1,6 +1,6 @@
     S -> NP VP E | NP VP SP E
     NP -> Det N
-    PP -> P NP | P NP PP
+    PP -> P NP
     VP -> 'saw' NP | 'walked' PP 
     SP -> Sub NP VP
     Sub -> 'where' | 'when'
