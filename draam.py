@@ -164,8 +164,9 @@ def parse_word_vecs(vectors, vec_size, pad):
 # Parses the file containing the training and testing sentences
 def parse_sentences(corpus):
     with open(corpus) as fp:
-        nltk.data.load('tokenizers/punkt/english.pickle')
-        sentences = nltk.sent_tokenize(fp.read())
+        # nltk.data.load('tokenizers/punkt/english.pickle')
+        # sentences = nltk.sent_tokenize(fp.read())
+        sentences = [line.split("\n")[0] for line in fp]
     return sentences
 
 
@@ -193,10 +194,10 @@ def parse_args():
     parser = argparse.ArgumentParser(description='draam.py')
 
     parser.add_argument('--lr', type=float, default=.001, help='learning rate')
-    parser.add_argument('--training-file', type=str, default='data/austen.txt', help='raw training data')
-    parser.add_argument('--test-file', type=str, default='data/austen.txt', help='raw test data')
-    parser.add_argument('--vec-file', type=str, default='data/wiki-news-300d-1M.vec', help='word vector file')
-    parser.add_argument('--vec-dim', type=int, default=300, help='word vector dimension')
+    parser.add_argument('--training_file', type=str, help='raw training data')
+    parser.add_argument('--test_file', type=str, help='raw test data')
+    parser.add_argument('--vec_file', type=str, default='data/wiki-news-300d-1M.vec', help='word vector file')
+    parser.add_argument('--vec_dim', type=int, default=300, help='word vector dimension')
     parser.add_argument('--verbose', action='store_true', help='verbose flag')
 
     return parser.parse_args()
@@ -207,7 +208,4 @@ if __name__ == "__main__":
     if args.verbose:
         print(args)
 
-    for i in range(10):
-        main(args)
-        tf.reset_default_graph()
-        args.lr *= 0.5
+    main(args)
