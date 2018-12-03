@@ -5,7 +5,7 @@ TODO: Change remaining grammars to PCFGs
     PP -> P NP [1.0]
     VP -> 'saw' NP [0.5] | 'walked' PP [0.5]
     Det -> 'the' [0.5] | 'a' [0.5]
-    N -> 'man' [0.333] | 'park' [0.333] | 'dog' [0.333]
+    N -> 'man' [0.3333] | 'park' [0.3333] | 'dog' [0.3333]
     P -> 'in' [0.5] | 'with' [0.5]
     E -> '.' [1.0]
 - gram_file_subord_simple: Add subordinate clauses to gram_file_simple
@@ -16,7 +16,7 @@ TODO: Change remaining grammars to PCFGs
     SP -> Sub NP VP [0.5] | Sub NP VP SP [0.5]
     Sub -> 'where' [0.5] | 'when' [0.5]
     Det -> 'the' [0.5] | 'a' [0.5]
-    N -> 'man' [0.333] | 'park' [0.333] | 'dog' [0.333]
+    N -> 'man' [0.3333] | 'park' [0.3333] | 'dog' [0.3333]
     P -> 'in' [0.5] | 'with' [0.5]
     E -> '.' [1.0]
 - gram_file_1: Add nested PPs
@@ -25,7 +25,7 @@ TODO: Change remaining grammars to PCFGs
     PP -> P NP [0.5] | P NP PP [0.5]
     VP -> 'saw' NP [0.5] | 'walked' PP [0.5]
     Det -> 'the' [0.5] | 'a' [0.5]
-    N -> 'man' [0.333] | 'park' [0.333] | 'dog' [0.333]
+    N -> 'man' [0.3333] | 'park' [0.3333] | 'dog' [0.3333]
     P -> 'in' [0.5] | 'with' [0.5]
     E -> '.' [1.0]
 - gram_file_subord_1: Add subordinate clauses to gram_file_1

@@ -4,7 +4,9 @@
 import os
 import sys
 from nltk.parse.generate import generate
+from nltk.grammar import Nonterminal
 from nltk import PCFG
+from random import choice
 import argparse
 
 def parse_args():
@@ -19,6 +21,33 @@ def parse_args():
     args = parser.parse_args()
     return args
 
+# Stolen from here:
+# https://stackoverflow.com/questions/15009656/how-to-use-nltk-to-generate-sentences-from-an-induced-grammar/15617664
+# def generate_sample(grammar, items=["S"]):
+#     frags = []
+#     if len(items) == 1:
+#         if isinstance(items[0], Nonterminal):
+#             for prod in grammar.productions(lhs=items[0]):
+#                 frags.append(generate_sample(grammar, prod.rhs()))
+#         else:
+#             frags.append(items[0])
+#     else:
+#         chosen_expansion = choice(items)
+#         frags.append(generate_sample, chosen_expansion)
+#     return frags
+
+# Stolen from here:
+# https://stackoverflow.com/questions/15009656/how-to-use-nltk-to-generate-sentences-from-an-induced-grammar/15617664 
+def generate_sample(grammar, prod, frags):
+    if prod in grammar._lhs_index:
+        derivations = grammar._lhs_index[prod]
+        derivation = choice(derivations)
+        for d in derivation._rhs:
+            generate_sample(grammar, d, frags)
+    elif prod in grammar._rhs_index:
+        # terminal
+        frags.append(prod)
+
 def generate_sentences(args):
     grammar_string = ""
 
@@ -31,17 +60,14 @@ def generate_sentences(args):
         print(grammar)
         print()
 
-    if args.max_depth > 4:
-        gen = generate(grammar, depth=args.max_depth)
-    else:
-        gen = generate(grammar, n=args.num_sent)
-
-    for sentence in gen:
-        yield sentence
+    for _ in range(args.num_sent):
+        frags = []
+        generate_sample(grammar, grammar.start(), frags)
+        yield ' '.join(frags)
 
 if __name__ == "__main__":
     args = parse_args()
 
     for sentence in generate_sentences(args):
-        args.output_file.write(' '.join(sentence))
+        args.output_file.write(sentence)
         args.output_file.write('\n')
