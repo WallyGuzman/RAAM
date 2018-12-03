@@ -26,7 +26,7 @@ def main(args):
 
     vectors = args.vec_file # File of word vectors
     corpus = args.training_file
-    test_corpus = args.test_file
+    #test_corpus = args.test_file
 
     original_sentence = tf.placeholder(tf.float32, [None, sen_len, word_vector_size + padding])
     ingest = original_sentence
@@ -74,14 +74,14 @@ def main(args):
     # print '*'*80
 
     sentence_dict = generate_samples(vectors, corpus, word_vector_size, padding)
-    test_sentence_dict = generate_samples(vectors, test_corpus, word_vector_size, padding)
+    #test_sentence_dict = generate_samples(vectors, test_corpus, word_vector_size, padding)
 
     # use 4/5 of the sentences to train, and 1/5 to validate
-    # cut = (4 * len(sentence_dict.values())) // 5
-    # training_data = list(sentence_dict.values())[0:cut]
-    # testing_data = list(sentence_dict.values())[cut:]
-    training_data = list(sentence_dict.values())
-    testing_data = list(test_sentence_dict.values())
+    cut = (4 * len(sentence_dict.values())) // 5
+    training_data = list(sentence_dict.values())[0:cut]
+    testing_data = list(sentence_dict.values())[cut:]
+    #training_data = list(sentence_dict.values())
+    #testing_data = list(test_sentence_dict.values())
 
     # Where the magic happens
     train(sess, train_step, np.array(training_data), loss, num_epochs, ingest, egest, original_sentence)
@@ -196,7 +196,7 @@ def parse_args():
 
     parser.add_argument('--lr', type=float, default=.001, help='learning rate')
     parser.add_argument('--training-file', type=str, default='data/austen.txt', help='raw training data')
-    parser.add_argument('--test-file', type=str, default='data/austen.txt', help='raw test data')
+    #parser.add_argument('--test-file', type=str, default='data/austen.txt', help='raw test data')
     parser.add_argument('--vec-file', type=str, default='data/wiki-news-300d-1M.vec', help='word vector file')
     parser.add_argument('--vec-dim', type=int, default=300, help='word vector dimension')
     parser.add_argument('--verbose', action='store_true', help='verbose flag')
