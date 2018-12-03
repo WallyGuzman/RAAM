@@ -196,7 +196,7 @@ def parse_args():
     parser.add_argument('--lr', type=float, default=.001, help='learning rate')
     parser.add_argument('--training-file', type=str, default='data/austen.txt', help='raw training data')
     #parser.add_argument('--test-file', type=str, default='data/austen.txt', help='raw test data')
-    parser.add_argument('--vec-file', type=str, default='data/wiki-news-300d-1M.vec', help='word vector file')
+    parser.add_argument('--vec-file', type=str, default='../data/wiki-news-300d-1M.vec', help='word vector file')
     parser.add_argument('--vec-dim', type=int, default=300, help='word vector dimension')
     parser.add_argument('--verbose', action='store_true', help='verbose flag')
     parser.add_argument('--hidden-size', type=int, default=300, help='maximum sentence length')
