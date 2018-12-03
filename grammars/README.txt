@@ -12,7 +12,7 @@
     NP -> Det N
     PP -> P NP
     VP -> 'saw' NP | 'walked' PP 
-    SP -> Sub NP VP
+    SP -> Sub NP VP | Sub NP VP SP
     Sub -> 'where' | 'when'
     Det -> 'the' | 'a'
     N -> 'man' | 'park' | 'dog'

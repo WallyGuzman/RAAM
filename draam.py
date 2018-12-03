@@ -18,6 +18,7 @@ def main(args):
     input_size = 2 * (word_vector_size + padding)
     num_epochs = 500
     sen_len = 32
+    hidden_size = args.hidden_size
     learning_rate = args.lr
 
     print("Vector size: %d, with padding: %d" % (word_vector_size, padding))
@@ -42,7 +43,7 @@ def main(args):
                         R_array.append(ingest[:, j])
                     else:
                         temp = tf.concat([ingest[:, j], ingest[:, j + 1]], axis=1)
-                        R = build_encoder(temp)
+                        R = build_encoder(temp, hidden_size)
                         R_array.append(R)
                 ingest = tf.stack(R_array, axis=1)
                 new_sen_len //= 2
@@ -88,7 +89,7 @@ def main(args):
     sess.close()
 
 
-def build_encoder(inputs):
+def build_encoder(inputs, hidden_size):
     size = inputs.shape[1].value
     with tf.name_scope('encoder') as scope:
         encoded = make_fc(inputs, size, "E_first")
@@ -198,6 +199,7 @@ def parse_args():
     parser.add_argument('--vec-file', type=str, default='data/wiki-news-300d-1M.vec', help='word vector file')
     parser.add_argument('--vec-dim', type=int, default=300, help='word vector dimension')
     parser.add_argument('--verbose', action='store_true', help='verbose flag')
+    parser.add_argument('--hidden-size', type=int, default=300, help='maximum sentence length')
 
     return parser.parse_args()
 
