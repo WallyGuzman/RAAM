@@ -4,7 +4,7 @@
 import os
 import sys
 from nltk.parse.generate import generate
-from nltk import CFG
+from nltk import PCFG
 import argparse
 
 def parse_args():
@@ -25,7 +25,7 @@ def generate_sentences(args):
     with open(args.grammar_file, "r") as gram_file:
         grammar_string = gram_file.read()
 
-    grammar = CFG.fromstring(grammar_string)
+    grammar = PCFG.fromstring(grammar_string)
 
     if args.verbose:
         print(grammar)

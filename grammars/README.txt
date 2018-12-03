@@ -1,32 +1,33 @@
+TODO: Change remaining grammars to PCFGs
 - gram_file_simple: Starting NLTK demo_grammar without 'slept'
-    S -> NP VP E
-    NP -> Det N
-    PP -> P NP
-    VP -> 'saw' NP | 'walked' PP
-    Det -> 'the' | 'a'
-    N -> 'man' | 'park' | 'dog'
-    P -> 'in' | 'with'
-    E -> '.'
+    S -> NP VP E [1.0]
+    NP -> Det N [1.0]
+    PP -> P NP [1.0]
+    VP -> 'saw' NP [0.5] | 'walked' PP [0.5]
+    Det -> 'the' [0.5] | 'a' [0.5]
+    N -> 'man' [0.333] | 'park' [0.333] | 'dog' [0.333]
+    P -> 'in' [0.5] | 'with' [0.5]
+    E -> '.' [1.0]
 - gram_file_subord_simple: Add subordinate clauses to gram_file_simple
-    S -> NP VP E | NP VP SP E
-    NP -> Det N
-    PP -> P NP
-    VP -> 'saw' NP | 'walked' PP 
-    SP -> Sub NP VP | Sub NP VP SP
-    Sub -> 'where' | 'when'
-    Det -> 'the' | 'a'
-    N -> 'man' | 'park' | 'dog'
-    P -> 'in' | 'with'
-    E -> '.'
+    S -> NP VP E [0.5] | NP VP SP E [0.5]
+    NP -> Det N [1.0]
+    PP -> P NP [1.0]
+    VP -> 'saw' NP [0.5] | 'walked' PP [0.5]
+    SP -> Sub NP VP [0.5] | Sub NP VP SP [0.5]
+    Sub -> 'where' [0.5] | 'when' [0.5]
+    Det -> 'the' [0.5] | 'a' [0.5]
+    N -> 'man' [0.333] | 'park' [0.333] | 'dog' [0.333]
+    P -> 'in' [0.5] | 'with' [0.5]
+    E -> '.' [1.0]
 - gram_file_1: Add nested PPs
-    S -> NP VP E
-    NP -> Det N
-    PP -> P NP | P NP PP
-    VP -> 'saw' NP | 'walked' PP
-    Det -> 'the' | 'a'
-    N -> 'man' | 'park' | 'dog'
-    P -> 'in' | 'with'
-    E -> '.'
+    S -> NP VP E [1.0]
+    NP -> Det N [1.0]
+    PP -> P NP [0.5] | P NP PP [0.5]
+    VP -> 'saw' NP [0.5] | 'walked' PP [0.5]
+    Det -> 'the' [0.5] | 'a' [0.5]
+    N -> 'man' [0.333] | 'park' [0.333] | 'dog' [0.333]
+    P -> 'in' [0.5] | 'with' [0.5]
+    E -> '.' [1.0]
 - gram_file_subord_1: Add subordinate clauses to gram_file_1
     S -> NP VP E | NP VP SP E
     NP -> Det N
