@@ -5,10 +5,12 @@ import tensorflow as tf
 import numpy as np
 import random
 import argparse
-
+import re
 
 def main(args):
-    input_size = 52  # 2 letters, 26 bits each, 1-hot
+
+    encs, input_size = produce_encodings(args.grammar_file)
+    train_data = enc_training_data(args.training_file, encs, args.max_sen_len)
 
     input1 = tf.placeholder(tf.float32, [None, input_size / 2])  # first letter
     input2 = tf.placeholder(tf.float32, [None, input_size / 2])  # second letter
@@ -16,10 +18,46 @@ def main(args):
 
     # layers
     encoded = make_fc(input_full, input_size, "encoder", 1)
-    encoded2 = make_fc(encoded, 3 * input_size / 4, "second_hidden", 2)
+    encoded2 = make_fc(encoded, 3 * input_size // 4, "second_hidden", 2)
     encoded3 = make_fc(encoded2, input_size / 2, "third_hidden", 2)
-    decoded1 = make_fc(encoded3, 3 * input_size / 4, "decoder", 2)
+    decoded1 = make_fc(encoded3, 3 * input_size // 4, "decoder", 2)
     decoded2 = make_fc(decoded1, input_size, "second_decoder", 1)
+
+    original_sentence = tf.placeholder(tf.float32, [None, sen_len, input_size / 2])
+    ingest = original_sentence
+
+    print(train_data, input_size)
+
+    # ingest
+    depth_ingest = int(math.ceil(math.log(sen_len, 2)))
+    new_sen_len = sen_len
+    with tf.name_scope('encoder'):
+        for i in range(depth_ingest):
+            with tf.name_scope(str(i)):
+                R_array = []
+                for j in range(0, new_sen_len, 2):
+                    if j == new_sen_len - 1:
+                        R_array.append(ingest[:, j])
+                    else:
+                        temp = tf.concat([ingest[:, j], ingest[:, j + 1]], axis=1)
+                        R = build_encoder(temp, hidden_size)
+                        R_array.append(R)
+                ingest = tf.stack(R_array, axis=1)
+                new_sen_len //= 2
+
+    # egest
+    egest = ingest
+    new_sen_len = 1
+    with tf.name_scope('decoder'):
+        for i in range(depth_ingest):
+            with tf.name_scope(str(i)):
+                R_array = []
+                for j in range(new_sen_len):
+                    R = build_decoder(egest[:, j])
+                    R_array.extend([R[:, :input_size // 2], R[:, input_size // 2:]])
+                egest = tf.stack(R_array, axis=1)
+                new_sen_len *= 2
+        egest = egest[:, 0:sen_len, :]
 
     loss = tf.losses.mean_squared_error(labels=input_full, predictions=decoded2)
     train_step = tf.train.GradientDescentOptimizer(0.003).minimize(loss)
@@ -65,6 +103,46 @@ def chunks(l, n):
     # split l into n-sized chunks
     for i in range(0, len(l), n):
         yield l[i:i + n]
+
+# Returns a dictionary of word->encoding mappings
+def produce_encodings(grammar_file):
+    literals = []
+    in_file = open(grammar_file, "r")
+
+    for line in in_file:
+        litre = re.compile("\'[a-z|A-Z|0-9]+\'")
+        literals += ([re.sub("\'", '', item) for item in litre.findall(line)])
+
+    in_file.close()
+
+    total_len_enc = len(literals)
+    enc_mapping = {}
+
+    for iter, item in enumerate(literals):
+        temp = []
+
+        for i in range(total_len_enc):
+            if i == iter:
+                temp.append(1)
+            else:
+                temp.append(0)
+
+        enc_mapping[item] = np.asarray(temp)
+
+    return enc_mapping, (len(literals) * 2)
+
+def enc_training_data(corpus, encs, max_sen_len):
+    in_file = open(corpus, "r")
+    print(encs)
+    len_enc = len(list(encs.values())[0])
+    sen_encs = {}
+
+    for line in in_file:
+        tokens = line.split(".")[0].split()
+        sen_encs[re.sub(' .\n', '', line)] = np.asarray([encs[item] for item in tokens] + [[0] * len_enc] * (max_sen_len - len(tokens)))
+    in_file.close()
+
+    return sen_encs
 
 
 ''' If the given vector (an np array) passes some terminal test, return the one-hot vector
@@ -119,8 +197,10 @@ def test(sess, training_set, loss, decoded2, input1, input2):
 def parse_args():
     parser = argparse.ArgumentParser(description='one_hot_raam.py')
 
-    parser.add_argument('--training-file', type=str, default='data/austen.txt', help='raw training data')
+    parser.add_argument('--training-file', type=str, default='train_data.txt', help='raw training data')
+    parser.add_argument('--grammar-file', type=str, default='train_grammar.txt', help='raw training data')
     parser.add_argument('--verbose', action='store_true', help='verbose flag')
+    parser.add_argument('--max_sen_len', type=int, default=32, help='max sentence length')
 
     return parser.parse_args()
 
@@ -130,6 +210,4 @@ if __name__ == "__main__":
     if args.verbose:
         print(args)
 
-    for i in range(10):
-        main(args)
-        tf.reset_default_graph()
+    main(args)
