@@ -16,7 +16,7 @@ for hidden_size in ${HIDDEN_SIZES[*]}; do
         python /u/gguzman/CS-394N/Final-Project/RAAM/draam.py --hidden-size $hidden_size --training-file /u/gguzman/CS-394N/Final-Project/RAAM/data/gram_4/gram_4_"$data_size".txt > /u/gguzman/CS-394N/Final-Project/RAAM/logs/gram_4/random/"$hidden_size"_"$data_size".out;
         echo "Testing with size:" $hidden_size "on recursive data:" $data_size;
         echo;
-        touch /u/gguzman/CS-394N/Final-Project/RAAM/logs/gram_4/sorted/"$data_size"_"$hidden_size".out;
+        touch /u/gguzman/CS-394N/Final-Project/RAAM/logs/gram_4/sorted/"$hidden_size"_"$data_size".out
         python /u/gguzman/CS-394N/Final-Project/RAAM/draam.py --hidden-size $hidden_size --training-file /u/gguzman/CS-394N/Final-Project/RAAM/data/gram_4/gram_4_"$data_size"_sorted.txt > /u/gguzman/CS-394N/Final-Project/RAAM/logs/gram_4/sorted/"$hidden_size"_"$data_size".out;
         done;
 done
