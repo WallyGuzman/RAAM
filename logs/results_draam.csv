@@ -1,0 +1,61 @@
+Test,  Type,       Hidden,  Data,  Cosine,  Loss
+PPA,   Random,     100,     500,   0.812,   0.002
+PPA,   Recursive,  100,     500,   0.812,   0.002
+SC,    Random,     100,     500,   0.749,   0.004
+SC,    Recursive,  100,     500,   0.883,   0.003
+PPA,   Random,     100,     1000,  0.780,   0.004
+PPA,   Recursive,  100,     1000,  0.710,   0.003
+SC,    Random,     100,     1000,  0.825,   0.003
+SC,    Recursive,  100,     1000,  0.890,   0.003
+PPA,   Random,     100,     2000,  0.838,   0.003
+PPA,   Recursive,  100,     2000,  0.891,   0.002
+SC,    Random,     100,     2000,  0.910,   0.003
+SC,    Recursive,  100,     2000,  0.887,   0.003
+PPA,   Random,     100,     4000,  0.775,   0.003
+PPA,   Recursive,  100,     4000,  0.768,   0.003
+SC,    Random,     100,     4000,  0.838,   0.003
+SC,    Recursive,  100,     4000,  0.814,   0.004
+PPA,   Random,     100,     8000,
+PPA,   Recursive,  100,     8000,
+SC,    Random,     100,     8000,
+SC,    Recursive,  100,     8000,
+PPA,   Random,     200,     500,
+PPA,   Recursive,  200,     500,
+SC,    Random,     200,     500,
+SC,    Recursive,  200,     500,
+PPA,   Random,     200,     1000,
+PPA,   Recursive,  200,     1000,
+SC,    Random,     200,     1000,
+SC,    Recursive,  200,     1000,
+PPA,   Random,     200,     2000,
+PPA,   Recursive,  200,     2000,
+SC,    Random,     200,     2000,
+SC,    Recursive,  200,     2000,
+PPA,   Random,     200,     4000,
+PPA,   Recursive,  200,     4000,
+SC,    Random,     200,     4000,
+SC,    Recursive,  200,     4000,
+PPA,   Random,     200,     8000,
+PPA,   Recursive,  200,     8000,
+SC,    Random,     200,     8000,
+SC,    Recursive,  200,     8000,
+PPA,   Random,     300,     500,
+PPA,   Recursive,  300,     500,
+SC,    Random,     300,     500,
+SC,    Recursive,  300,     500,
+PPA,   Random,     300,     2000,
+PPA,   Recursive,  300,     2000,
+SC,    Random,     300,     2000,
+SC,    Recursive,  300,     2000,
+PPA,   Random,     300,     2000,
+PPA,   Recursive,  300,     2000,
+SC,    Random,     300,     2000,
+SC,    Recursive,  300,     2000,
+PPA,   Random,     300,     4000,
+PPA,   Recursive,  300,     4000,
+SC,    Random,     300,     4000,
+SC,    Recursive,  300,     4000,
+PPA,   Random,     300,     8000,
+PPA,   Recursive,  300,     8000,
+SC,    Random,     300,     8000,
+SC,    Recursive,  300,     8000,
