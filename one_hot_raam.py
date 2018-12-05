@@ -67,23 +67,6 @@ def main(args):
     test(sess, training_set, loss, decoded2, input1, input2)
     sess.close()
 
-def build_encoder(inputs, hidden_size):
-    size = inputs.shape[1].value
-    with tf.name_scope('encoder') as scope:
-        encoded = make_fc(inputs, size, "E_first")
-        encoded2 = make_fc(encoded, 3 * size // 4, "E_second")
-    with tf.name_scope('center') as scope:
-        center = make_fc(encoded2, size / 2, "center")
-    return center
-
-
-def build_decoder(inputs):
-    size = inputs.shape[1].value
-    with tf.name_scope('decoder') as scope:
-        decoded = make_fc(inputs, 3 * size // 2, "D_first")
-        decoded2 = make_fc(decoded, 2 * size, "D_second")
-    return decoded2
-
 def make_fc(input_tensor, output_size, name, mode):
     W = tf.get_variable(name + "weights", [input_tensor.get_shape().as_list()[1], output_size], tf.float32,
                         tf.random_normal_initializer(stddev=0.1))
@@ -191,16 +174,14 @@ def train(sess, train_step, training_set, loss, decoded2, input1, input2):
             R_array = []
             for j in range(0, new_sen_len, 2):
                 if j == new_sen_len - 1:
-                    R_array.append()
+                    R_array.append(ingest[:, j])
                 else:
                     temp = tf.concat([ingest[:, j], ingest[:, j + 1]], axis=1)
-                    sess.run([train_step, loss, decoded2, encoded2], feed_dict={})
-                    R = build_encoder(temp, hidden_size)
-                    R_array.append(R)
+                    _, my_loss, decoded2, encoded2 = sess.run([train_step, loss, decoded2, encoded2], feed_dict={})
+                    R_array.append(encoded2)
             ingest = tf.stack(R_array, axis=1)
             new_sen_len //= 2
-        #	_, my_loss, my_decoded, original = sess.run([train_step, loss, decoded2, input_full], feed_dict={input1:inputs[0]], input2:[inputs[1]]})
-        _, my_loss, _, = sess.run([train_step, loss, decoded2], feed_dict={input1: x, input2: y})
+
         if i % 500 == 0:
             print("epoch: " + str(i))
             print("loss: " + str(my_loss))
