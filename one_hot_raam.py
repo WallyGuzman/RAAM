@@ -18,7 +18,6 @@ def main(args):
     sen_len = 32
     encs, enc_len = produce_encodings(args.grammar_file)
     sentence_dict = enc_training_data(args.training_file, encs, sen_len)
-    print(sentence_dict)
     hidden_size = args.hidden_size
     learning_rate = args.lr
     input_size = enc_len * 2
@@ -237,8 +236,8 @@ def parse_args():
     parser = argparse.ArgumentParser(description='draam.py')
 
     parser.add_argument('--lr', type=float, default=.001, help='learning rate')
-    parser.add_argument('--training-file', type=str, default='data/austen.txt', help='raw training data')
-    parser.add_argument('--grammar-file', type=str, default='gram_file_4.txt', help='grammar file')
+    parser.add_argument('--training-file', type=str, default='data/simple_gen.txt', help='raw training data')
+    parser.add_argument('--grammar-file', type=str, default='grammars/gram_file_simple.txt', help='grammar file')
     #parser.add_argument('--test-file', type=str, default='data/austen.txt', help='raw test data')
     parser.add_argument('--vec-file', type=str, default='/u/gguzman/CS-394N/Final-Project/RAAM/data/wiki-news-300d-1M.vec', help='word vector file')
     parser.add_argument('--vec-dim', type=int, default=300, help='word vector dimension')
