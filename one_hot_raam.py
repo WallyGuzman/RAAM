@@ -6,11 +6,11 @@ import numpy as np
 import random
 import argparse
 import re
-
+import math
 def main(args):
 
     encs, input_size = produce_encodings(args.grammar_file)
-    train_data = enc_training_data(args.training_file, encs, args.max_sen_len)
+    training_set = enc_training_data(args.training_file, encs, args.max_sen_len)
 
     input1 = tf.placeholder(tf.float32, [None, input_size / 2])  # first letter
     input2 = tf.placeholder(tf.float32, [None, input_size / 2])  # second letter
@@ -23,52 +23,66 @@ def main(args):
     decoded1 = make_fc(encoded3, 3 * input_size // 4, "decoder", 2)
     decoded2 = make_fc(decoded1, input_size, "second_decoder", 1)
 
-    original_sentence = tf.placeholder(tf.float32, [None, sen_len, input_size / 2])
+    original_sentence = tf.placeholder(tf.float32, [None, args.max_sen_len, input_size / 2])
     ingest = original_sentence
 
-    print(train_data, input_size)
-
     # ingest
-    depth_ingest = int(math.ceil(math.log(sen_len, 2)))
-    new_sen_len = sen_len
-    with tf.name_scope('encoder'):
-        for i in range(depth_ingest):
-            with tf.name_scope(str(i)):
-                R_array = []
-                for j in range(0, new_sen_len, 2):
-                    if j == new_sen_len - 1:
-                        R_array.append(ingest[:, j])
-                    else:
-                        temp = tf.concat([ingest[:, j], ingest[:, j + 1]], axis=1)
-                        R = build_encoder(temp, hidden_size)
-                        R_array.append(R)
-                ingest = tf.stack(R_array, axis=1)
-                new_sen_len //= 2
+    # depth_ingest = int(math.ceil(math.log(args.max_sen_len, 2)))
+    # new_sen_len = args.max_sen_len
+    # with tf.name_scope('encoder'):
+    #     for i in range(depth_ingest):
+    #         with tf.name_scope(str(i)):
+    #             R_array = []
+    #             for j in range(0, new_sen_len, 2):
+    #                 if j == new_sen_len - 1:
+    #                     R_array.append(ingest[:, j])
+    #                 else:
+    #                     temp = tf.concat([ingest[:, j], ingest[:, j + 1]], axis=1)
+    #                     R = build_encoder(temp, hidden_size)
+    #                     R_array.append(R)
+    #             ingest = tf.stack(R_array, axis=1)
+    #             new_sen_len //= 2
 
-    # egest
-    egest = ingest
-    new_sen_len = 1
-    with tf.name_scope('decoder'):
-        for i in range(depth_ingest):
-            with tf.name_scope(str(i)):
-                R_array = []
-                for j in range(new_sen_len):
-                    R = build_decoder(egest[:, j])
-                    R_array.extend([R[:, :input_size // 2], R[:, input_size // 2:]])
-                egest = tf.stack(R_array, axis=1)
-                new_sen_len *= 2
-        egest = egest[:, 0:sen_len, :]
+    # # egest
+    # egest = ingest
+    # new_sen_len = 1
+    # with tf.name_scope('decoder'):
+    #     for i in range(depth_ingest):
+    #         with tf.name_scope(str(i)):
+    #             R_array = []
+    #             for j in range(new_sen_len):
+    #                 R = build_decoder(egest[:, j])
+    #                 R_array.extend([R[:, :input_size // 2], R[:, input_size // 2:]])
+    #             egest = tf.stack(R_array, axis=1)
+    #             new_sen_len *= 2
+    #     egest = egest[:, 0:sen_len, :]
 
     loss = tf.losses.mean_squared_error(labels=input_full, predictions=decoded2)
     train_step = tf.train.GradientDescentOptimizer(0.003).minimize(loss)
     sess = tf.InteractiveSession()
     tf.global_variables_initializer().run()
 
-    training_set = generate_samples(input_size // 2)
+    #training_set = generate_samples(input_size // 2)
     train(sess, train_step, training_set, loss, decoded2, input1, input2)
     test(sess, training_set, loss, decoded2, input1, input2)
     sess.close()
 
+def build_encoder(inputs, hidden_size):
+    size = inputs.shape[1].value
+    with tf.name_scope('encoder') as scope:
+        encoded = make_fc(inputs, size, "E_first")
+        encoded2 = make_fc(encoded, 3 * size // 4, "E_second")
+    with tf.name_scope('center') as scope:
+        center = make_fc(encoded2, size / 2, "center")
+    return center
+
+
+def build_decoder(inputs):
+    size = inputs.shape[1].value
+    with tf.name_scope('decoder') as scope:
+        decoded = make_fc(inputs, 3 * size // 2, "D_first")
+        decoded2 = make_fc(decoded, 2 * size, "D_second")
+    return decoded2
 
 def make_fc(input_tensor, output_size, name, mode):
     W = tf.get_variable(name + "weights", [input_tensor.get_shape().as_list()[1], output_size], tf.float32,
@@ -165,13 +179,26 @@ def good_or_bad(vec):
 
 def train(sess, train_step, training_set, loss, decoded2, input1, input2):
     # Training loop
-    for i in range(20000):
+    for instance in training_set.keys():
         # inputs = training_set[i % len(training_set)]
-        x = np.array([training_set[j][0] for j in range(training_set.shape[0])])
-        y = np.array([training_set[j][1] for j in range(training_set.shape[0])])
-        random.shuffle(x)
-        random.shuffle(y)
+        encs = tf.convert_to_tensor(training_set[instance], dtype=tf.float32)
+        print(encs)
+        depth_ingest = int(math.ceil(math.log(args.max_sen_len, 2)))
+        new_sen_len = args.max_sen_len
+        ingest = encs
 
+        for i in range(depth_ingest):
+            R_array = []
+            for j in range(0, new_sen_len, 2):
+                if j == new_sen_len - 1:
+                    R_array.append()
+                else:
+                    temp = tf.concat([ingest[:, j], ingest[:, j + 1]], axis=1)
+                    sess.run([train_step, loss, decoded2, encoded2], feed_dict={})
+                    R = build_encoder(temp, hidden_size)
+                    R_array.append(R)
+            ingest = tf.stack(R_array, axis=1)
+            new_sen_len //= 2
         #	_, my_loss, my_decoded, original = sess.run([train_step, loss, decoded2, input_full], feed_dict={input1:inputs[0]], input2:[inputs[1]]})
         _, my_loss, _, = sess.run([train_step, loss, decoded2], feed_dict={input1: x, input2: y})
         if i % 500 == 0:
