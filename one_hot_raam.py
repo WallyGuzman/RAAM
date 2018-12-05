@@ -18,7 +18,7 @@ def main(args):
     sen_len = 32
     encs, enc_len = produce_encodings(args.grammar_file)
     sentence_dict = enc_training_data(args.training_file, encs, sen_len)
-    print(sentence_dict)
+    #print(sentence_dict)
     hidden_size = args.hidden_size
     learning_rate = args.lr
     input_size = enc_len * 2
@@ -84,7 +84,7 @@ def main(args):
     testing_data = list(sentence_dict.values())[cut:]
     #training_data = list(sentence_dict.values())
     #testing_data = list(test_sentence_dict.values())
-
+    print(np.array(training_data)[0])
     # Where the magic happens
     train(sess, train_step, np.array(training_data), loss, num_epochs, ingest, egest, original_sentence)
     test(sess, np.array(testing_data), loss, ingest, egest, original_sentence)
@@ -161,7 +161,6 @@ def produce_encodings(grammar_file):
                 temp.append(0)
 
         enc_mapping[item] = np.asarray(temp)
-
     return enc_mapping, len(literals)
 
 def enc_training_data(corpus, encs, max_sen_len):
@@ -171,7 +170,7 @@ def enc_training_data(corpus, encs, max_sen_len):
     sen_encs = {}
 
     for line in in_file:
-        tokens = line.split(".")[0].split()
+        tokens = line.split(".")[0].split()[0:32]
         sen_encs[re.sub(' .\n', '', line)] = np.asarray([encs[item] for item in tokens] + [[0] * len_enc] * (max_sen_len - len(tokens)))
     in_file.close()
 
