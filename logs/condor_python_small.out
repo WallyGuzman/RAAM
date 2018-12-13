@@ -1,0 +1,2910 @@
+Testing nested PPAs
+Testing with size: 100 on random data: 500
+
+Vector size: 300, with padding: 150
+Learning rate: 0.001000
+Shape is: 
+(364, 32, 450)
+Epoch: 0
+Loss: 0.63559026
+Epoch: 25
+Loss: 0.37860483
+Epoch: 50
+Loss: 0.064035274
+Epoch: 75
+Loss: 0.023634164
+Epoch: 100
+Loss: 0.011382197
+Epoch: 125
+Loss: 0.008909347
+Epoch: 150
+Loss: 0.006211805
+Epoch: 175
+Loss: 0.0047056167
+Epoch: 200
+Loss: 0.0046498533
+Epoch: 225
+Loss: 0.003496683
+Epoch: 250
+Loss: 0.0042694486
+Epoch: 275
+Loss: 0.0030034562
+Epoch: 300
+Loss: 0.0029657
+Epoch: 325
+Loss: 0.0026828246
+Epoch: 350
+Loss: 0.0029797025
+Epoch: 375
+Loss: 0.002816301
+Epoch: 400
+Loss: 0.0028019017
+Epoch: 425
+Loss: 0.0031129043
+Epoch: 450
+Loss: 0.002742088
+Epoch: 475
+Loss: 0.0023786514
+cosine: 0.8123624850108033
+Validation loss: 0.002214056
+Testing with size: 100 on recursive data: 500
+
+Vector size: 300, with padding: 150
+Learning rate: 0.001000
+Shape is: 
+(364, 32, 450)
+Epoch: 0
+Loss: 0.6350205
+Epoch: 25
+Loss: 0.29033834
+Epoch: 50
+Loss: 0.05813703
+Epoch: 75
+Loss: 0.024929903
+Epoch: 100
+Loss: 0.014259899
+Epoch: 125
+Loss: 0.009865164
+Epoch: 150
+Loss: 0.007981601
+Epoch: 175
+Loss: 0.0060876394
+Epoch: 200
+Loss: 0.00441878
+Epoch: 225
+Loss: 0.003994249
+Epoch: 250
+Loss: 0.004176327
+Epoch: 275
+Loss: 0.0036074102
+Epoch: 300
+Loss: 0.0032132536
+Epoch: 325
+Loss: 0.0034549043
+Epoch: 350
+Loss: 0.0026520207
+Epoch: 375
+Loss: 0.0030217166
+Epoch: 400
+Loss: 0.0026232165
+Epoch: 425
+Loss: 0.0029251506
+Epoch: 450
+Loss: 0.0026558223
+Epoch: 475
+Loss: 0.002672881
+cosine: 0.8124461293008483
+Validation loss: 0.0024798617
+Testing nested SCs
+Testing with size: 100 on random data: 500
+
+Vector size: 300, with padding: 150
+Learning rate: 0.001000
+Shape is: 
+(386, 32, 450)
+Epoch: 0
+Loss: 0.6367763
+Epoch: 25
+Loss: 0.35827762
+Epoch: 50
+Loss: 0.063317016
+Epoch: 75
+Loss: 0.029985275
+Epoch: 100
+Loss: 0.020153552
+Epoch: 125
+Loss: 0.015180868
+Epoch: 150
+Loss: 0.010776998
+Epoch: 175
+Loss: 0.008993848
+Epoch: 200
+Loss: 0.00847853
+Epoch: 225
+Loss: 0.0075653866
+Epoch: 250
+Loss: 0.0064857397
+Epoch: 275
+Loss: 0.006383787
+Epoch: 300
+Loss: 0.005648029
+Epoch: 325
+Loss: 0.0055549745
+Epoch: 350
+Loss: 0.0050022868
+Epoch: 375
+Loss: 0.00517533
+Epoch: 400
+Loss: 0.0045353663
+Epoch: 425
+Loss: 0.0046621286
+Epoch: 450
+Loss: 0.0046291263
+Epoch: 475
+Loss: 0.004146631
+cosine: 0.7492202260432248
+Validation loss: 0.0043265466
+Testing with size: 100 on recursive data: 500
+
+Vector size: 300, with padding: 150
+Learning rate: 0.001000
+Shape is: 
+(386, 32, 450)
+Epoch: 0
+Loss: 0.63648736
+Epoch: 25
+Loss: 0.41562
+Epoch: 50
+Loss: 0.06419095
+Epoch: 75
+Loss: 0.027251855
+Epoch: 100
+Loss: 0.015684469
+Epoch: 125
+Loss: 0.010709057
+Epoch: 150
+Loss: 0.00853207
+Epoch: 175
+Loss: 0.00684626
+Epoch: 200
+Loss: 0.006637041
+Epoch: 225
+Loss: 0.005430856
+Epoch: 250
+Loss: 0.005770977
+Epoch: 275
+Loss: 0.0048744334
+Epoch: 300
+Loss: 0.004682085
+Epoch: 325
+Loss: 0.0053726584
+Epoch: 350
+Loss: 0.0040520984
+Epoch: 375
+Loss: 0.004335097
+Epoch: 400
+Loss: 0.0039815293
+Epoch: 425
+Loss: 0.00407809
+Epoch: 450
+Loss: 0.0038490524
+Epoch: 475
+Loss: 0.0041434006
+cosine: 0.8832573972047132
+Validation loss: 0.003346602
+Testing nested PPAs
+Testing with size: 100 on random data: 1000
+
+Vector size: 300, with padding: 150
+Learning rate: 0.001000
+Shape is: 
+(639, 32, 450)
+Epoch: 0
+Loss: 0.6351677
+Epoch: 25
+Loss: 0.2234584
+Epoch: 50
+Loss: 0.06545443
+Epoch: 75
+Loss: 0.038147803
+Epoch: 100
+Loss: 0.025957087
+Epoch: 125
+Loss: 0.019561438
+Epoch: 150
+Loss: 0.01588687
+Epoch: 175
+Loss: 0.013126799
+Epoch: 200
+Loss: 0.0114669055
+Epoch: 225
+Loss: 0.010185792
+Epoch: 250
+Loss: 0.008900956
+Epoch: 275
+Loss: 0.0078880815
+Epoch: 300
+Loss: 0.0072699552
+Epoch: 325
+Loss: 0.0063331905
+Epoch: 350
+Loss: 0.006823908
+Epoch: 375
+Loss: 0.0054891454
+Epoch: 400
+Loss: 0.0053540193
+Epoch: 425
+Loss: 0.004805269
+Epoch: 450
+Loss: 0.0042691194
+Epoch: 475
+Loss: 0.004194148
+cosine: 0.7809260498617043
+Validation loss: 0.0041839466
+Testing with size: 100 on recursive data: 1000
+
+Vector size: 300, with padding: 150
+Learning rate: 0.001000
+Shape is: 
+(639, 32, 450)
+Epoch: 0
+Loss: 0.6350578
+Epoch: 25
+Loss: 0.20950906
+Epoch: 50
+Loss: 0.06066764
+Epoch: 75
+Loss: 0.033315264
+Epoch: 100
+Loss: 0.022850841
+Epoch: 125
+Loss: 0.017458003
+Epoch: 150
+Loss: 0.0135131935
+Epoch: 175
+Loss: 0.011612861
+Epoch: 200
+Loss: 0.00994258
+Epoch: 225
+Loss: 0.009006134
+Epoch: 250
+Loss: 0.0074978513
+Epoch: 275
+Loss: 0.0067358566
+Epoch: 300
+Loss: 0.0053427485
+Epoch: 325
+Loss: 0.00581462
+Epoch: 350
+Loss: 0.0044691092
+Epoch: 375
+Loss: 0.004040231
+Epoch: 400
+Loss: 0.0040075504
+Epoch: 425
+Loss: 0.0036312027
+Epoch: 450
+Loss: 0.003488724
+Epoch: 475
+Loss: 0.0035218613
+cosine: 0.7101216322923897
+Validation loss: 0.0032982568
+Testing nested SCs
+Testing with size: 100 on random data: 1000
+
+Vector size: 300, with padding: 150
+Learning rate: 0.001000
+Shape is: 
+(748, 32, 450)
+Epoch: 0
+Loss: 0.6358901
+Epoch: 25
+Loss: 0.21313205
+Epoch: 50
+Loss: 0.047781948
+Epoch: 75
+Loss: 0.023372406
+Epoch: 100
+Loss: 0.014171355
+Epoch: 125
+Loss: 0.010196494
+Epoch: 150
+Loss: 0.00808594
+Epoch: 175
+Loss: 0.0070209317
+Epoch: 200
+Loss: 0.0060093175
+Epoch: 225
+Loss: 0.0051875706
+Epoch: 250
+Loss: 0.004977968
+Epoch: 275
+Loss: 0.0047804504
+Epoch: 300
+Loss: 0.004475366
+Epoch: 325
+Loss: 0.0044048545
+Epoch: 350
+Loss: 0.0041324887
+Epoch: 375
+Loss: 0.003876485
+Epoch: 400
+Loss: 0.0037067886
+Epoch: 425
+Loss: 0.0037503368
+Epoch: 450
+Loss: 0.0036665886
+Epoch: 475
+Loss: 0.0038518417
+cosine: 0.8259053295655541
+Validation loss: 0.003411602
+Testing with size: 100 on recursive data: 1000
+
+Vector size: 300, with padding: 150
+Learning rate: 0.001000
+Shape is: 
+(748, 32, 450)
+Epoch: 0
+Loss: 0.6364554
+Epoch: 25
+Loss: 0.21509346
+Epoch: 50
+Loss: 0.04451401
+Epoch: 75
+Loss: 0.020499416
+Epoch: 100
+Loss: 0.012895
+Epoch: 125
+Loss: 0.0096972715
+Epoch: 150
+Loss: 0.007028161
+Epoch: 175
+Loss: 0.006282422
+Epoch: 200
+Loss: 0.005186093
+Epoch: 225
+Loss: 0.0049661756
+Epoch: 250
+Loss: 0.004491315
+Epoch: 275
+Loss: 0.0043526823
+Epoch: 300
+Loss: 0.00408304
+Epoch: 325
+Loss: 0.004385277
+Epoch: 350
+Loss: 0.0037830293
+Epoch: 375
+Loss: 0.003914713
+Epoch: 400
+Loss: 0.0038243562
+Epoch: 425
+Loss: 0.0034850868
+Epoch: 450
+Loss: 0.0036008551
+Epoch: 475
+Loss: 0.0032753234
+cosine: 0.8908724157528849
+Validation loss: 0.0036157398
+Testing nested PPAs
+Testing with size: 100 on random data: 2000
+
+Vector size: 300, with padding: 150
+Learning rate: 0.001000
+Shape is: 
+(1059, 32, 450)
+Epoch: 0
+Loss: 0.634344
+Epoch: 25
+Loss: 0.21933863
+Epoch: 50
+Loss: 0.055629753
+Epoch: 75
+Loss: 0.029326238
+Epoch: 100
+Loss: 0.019325117
+Epoch: 125
+Loss: 0.013076602
+Epoch: 150
+Loss: 0.010522047
+Epoch: 175
+Loss: 0.008222989
+Epoch: 200
+Loss: 0.0069451774
+Epoch: 225
+Loss: 0.0061179944
+Epoch: 250
+Loss: 0.0060342834
+Epoch: 275
+Loss: 0.0051757013
+Epoch: 300
+Loss: 0.004566147
+Epoch: 325
+Loss: 0.0042730267
+Epoch: 350
+Loss: 0.0046565933
+Epoch: 375
+Loss: 0.003561041
+Epoch: 400
+Loss: 0.0036900106
+Epoch: 425
+Loss: 0.0036202401
+Epoch: 450
+Loss: 0.0034576422
+Epoch: 475
+Loss: 0.0030634333
+cosine: 0.8381466662547966
+Validation loss: 0.0031659522
+Testing with size: 100 on recursive data: 2000
+
+Vector size: 300, with padding: 150
+Learning rate: 0.001000
+Shape is: 
+(1059, 32, 450)
+Epoch: 0
+Loss: 0.63493437
+Epoch: 25
+Loss: 0.22706886
+Epoch: 50
+Loss: 0.04458206
+Epoch: 75
+Loss: 0.019268978
+Epoch: 100
+Loss: 0.010941212
+Epoch: 125
+Loss: 0.008208856
+Epoch: 150
+Loss: 0.0066439197
+Epoch: 175
+Loss: 0.005839303
+Epoch: 200
+Loss: 0.0053391946
+Epoch: 225
+Loss: 0.0048900247
+Epoch: 250
+Loss: 0.0044567133
+Epoch: 275
+Loss: 0.0044265194
+Epoch: 300
+Loss: 0.0039915647
+Epoch: 325
+Loss: 0.003611209
+Epoch: 350
+Loss: 0.0036742254
+Epoch: 375
+Loss: 0.0034125508
+Epoch: 400
+Loss: 0.003417819
+Epoch: 425
+Loss: 0.00323145
+Epoch: 450
+Loss: 0.0031511572
+Epoch: 475
+Loss: 0.0027350513
+cosine: 0.8917610261915154
+Validation loss: 0.00290667
+Testing nested SCs
+Testing with size: 100 on random data: 2000
+
+Vector size: 300, with padding: 150
+Learning rate: 0.001000
+Shape is: 
+(1428, 32, 450)
+Epoch: 0
+Loss: 0.6367429
+Epoch: 25
+Loss: 0.18426687
+Epoch: 50
+Loss: 0.042894535
+Epoch: 75
+Loss: 0.021386394
+Epoch: 100
+Loss: 0.014769807
+Epoch: 125
+Loss: 0.011877387
+Epoch: 150
+Loss: 0.009240681
+Epoch: 175
+Loss: 0.009195601
+Epoch: 200
+Loss: 0.0067762504
+Epoch: 225
+Loss: 0.0061919433
+Epoch: 250
+Loss: 0.005421698
+Epoch: 275
+Loss: 0.0051554833
+Epoch: 300
+Loss: 0.0050086956
+Epoch: 325
+Loss: 0.0046408526
+Epoch: 350
+Loss: 0.0054856157
+Epoch: 375
+Loss: 0.004367523
+Epoch: 400
+Loss: 0.004473012
+Epoch: 425
+Loss: 0.004275534
+Epoch: 450
+Loss: 0.0040474525
+Epoch: 475
+Loss: 0.0040024556
+cosine: 0.9105455074248386
+Validation loss: 0.0037518027
+Testing with size: 100 on recursive data: 2000
+
+Vector size: 300, with padding: 150
+Learning rate: 0.001000
+Shape is: 
+(1428, 32, 450)
+Epoch: 0
+Loss: 0.63680387
+Epoch: 25
+Loss: 0.20378518
+Epoch: 50
+Loss: 0.043283984
+Epoch: 75
+Loss: 0.022870915
+Epoch: 100
+Loss: 0.0152502395
+Epoch: 125
+Loss: 0.01118737
+Epoch: 150
+Loss: 0.010470923
+Epoch: 175
+Loss: 0.0079415515
+Epoch: 200
+Loss: 0.007352845
+Epoch: 225
+Loss: 0.0075112376
+Epoch: 250
+Loss: 0.0055235876
+Epoch: 275
+Loss: 0.005761969
+Epoch: 300
+Loss: 0.005583907
+Epoch: 325
+Loss: 0.0052517243
+Epoch: 350
+Loss: 0.0045457305
+Epoch: 375
+Loss: 0.0046043866
+Epoch: 400
+Loss: 0.0045231297
+Epoch: 425
+Loss: 0.004721586
+Epoch: 450
+Loss: 0.0041734376
+Epoch: 475
+Loss: 0.004230695
+cosine: 0.8870002159989536
+Validation loss: 0.003921074
+Testing nested PPAs
+Testing with size: 100 on random data: 4000
+
+Vector size: 300, with padding: 150
+Learning rate: 0.001000
+Shape is: 
+(1812, 32, 450)
+Epoch: 0
+Loss: 0.63549143
+Epoch: 25
+Loss: 0.20152417
+Epoch: 50
+Loss: 0.0570866
+Epoch: 75
+Loss: 0.032479066
+Epoch: 100
+Loss: 0.022655256
+Epoch: 125
+Loss: 0.016204353
+Epoch: 150
+Loss: 0.013228702
+Epoch: 175
+Loss: 0.011795119
+Epoch: 200
+Loss: 0.009601544
+Epoch: 225
+Loss: 0.00836849
+Epoch: 250
+Loss: 0.007316645
+Epoch: 275
+Loss: 0.006523864
+Epoch: 300
+Loss: 0.0059276666
+Epoch: 325
+Loss: 0.005431467
+Epoch: 350
+Loss: 0.004838035
+Epoch: 375
+Loss: 0.004647706
+Epoch: 400
+Loss: 0.004553894
+Epoch: 425
+Loss: 0.0038680264
+Epoch: 450
+Loss: 0.0037359414
+Epoch: 475
+Loss: 0.0035149753
+cosine: 0.7753793914198857
+Validation loss: 0.0035556261
+Testing with size: 100 on recursive data: 4000
+
+Vector size: 300, with padding: 150
+Learning rate: 0.001000
+Shape is: 
+(1812, 32, 450)
+Epoch: 0
+Loss: 0.63621193
+Epoch: 25
+Loss: 0.20607862
+Epoch: 50
+Loss: 0.056858506
+Epoch: 75
+Loss: 0.031965546
+Epoch: 100
+Loss: 0.021494603
+Epoch: 125
+Loss: 0.016742654
+Epoch: 150
+Loss: 0.013447503
+Epoch: 175
+Loss: 0.010484083
+Epoch: 200
+Loss: 0.009096809
+Epoch: 225
+Loss: 0.0074380427
+Epoch: 250
+Loss: 0.006013477
+Epoch: 275
+Loss: 0.005442078
+Epoch: 300
+Loss: 0.0046646753
+Epoch: 325
+Loss: 0.0042486386
+Epoch: 350
+Loss: 0.004316964
+Epoch: 375
+Loss: 0.003789361
+Epoch: 400
+Loss: 0.004052327
+Epoch: 425
+Loss: 0.0035820396
+Epoch: 450
+Loss: 0.00319197
+Epoch: 475
+Loss: 0.003477578
+cosine: 0.7684198868472923
+Validation loss: 0.0031716863
+Testing nested SCs
+Testing with size: 100 on random data: 4000
+
+Vector size: 300, with padding: 150
+Learning rate: 0.001000
+Shape is: 
+(2690, 32, 450)
+Epoch: 0
+Loss: 0.6376284
+Epoch: 25
+Loss: 0.18351063
+Epoch: 50
+Loss: 0.043365426
+Epoch: 75
+Loss: 0.022807164
+Epoch: 100
+Loss: 0.013919156
+Epoch: 125
+Loss: 0.011203911
+Epoch: 150
+Loss: 0.0082587395
+Epoch: 175
+Loss: 0.0074190334
+Epoch: 200
+Loss: 0.0068132905
+Epoch: 225
+Loss: 0.006262536
+Epoch: 250
+Loss: 0.006192355
+Epoch: 275
+Loss: 0.0055251685
+Epoch: 300
+Loss: 0.004888501
+Epoch: 325
+Loss: 0.004706569
+Epoch: 350
+Loss: 0.0043241857
+Epoch: 375
+Loss: 0.0044798735
+Epoch: 400
+Loss: 0.0042192205
+Epoch: 425
+Loss: 0.004035699
+Epoch: 450
+Loss: 0.004444405
+Epoch: 475
+Loss: 0.003917431
+cosine: 0.8380863785478194
+Validation loss: 0.0037432506
+Testing with size: 100 on recursive data: 4000
+
+Vector size: 300, with padding: 150
+Learning rate: 0.001000
+Shape is: 
+(2690, 32, 450)
+Epoch: 0
+Loss: 0.63788795
+Epoch: 25
+Loss: 0.16611403
+Epoch: 50
+Loss: 0.04162025
+Epoch: 75
+Loss: 0.020142907
+Epoch: 100
+Loss: 0.01331541
+Epoch: 125
+Loss: 0.009831056
+Epoch: 150
+Loss: 0.008698211
+Epoch: 175
+Loss: 0.0065746927
+Epoch: 200
+Loss: 0.0063124704
+Epoch: 225
+Loss: 0.0054735076
+Epoch: 250
+Loss: 0.0054862327
+Epoch: 275
+Loss: 0.004851564
+Epoch: 300
+Loss: 0.0047153495
+Epoch: 325
+Loss: 0.0046166065
+Epoch: 350
+Loss: 0.0041167247
+Epoch: 375
+Loss: 0.004477302
+Epoch: 400
+Loss: 0.0043270285
+Epoch: 425
+Loss: 0.0044128485
+Epoch: 450
+Loss: 0.004168575
+Epoch: 475
+Loss: 0.0038740647
+cosine: 0.8149124921770606
+Validation loss: 0.004453112
+Testing nested PPAs
+Testing with size: 100 on random data: 8000
+
+Vector size: 300, with padding: 150
+Learning rate: 0.001000
+Shape is: 
+(3024, 32, 450)
+Epoch: 0
+Loss: 0.63504195
+Epoch: 25
+Loss: 0.19811355
+Epoch: 50
+Loss: 0.052173123
+Epoch: 75
+Loss: 0.02791477
+Epoch: 100
+Loss: 0.018736674
+Epoch: 125
+Loss: 0.014397374
+Epoch: 150
+Loss: 0.01130451
+Epoch: 175
+Loss: 0.00938151
+Epoch: 200
+Loss: 0.008105404
+Epoch: 225
+Loss: 0.00729347
+Epoch: 250
+Loss: 0.006294435
+Epoch: 275
+Loss: 0.0054708887
+Epoch: 300
+Loss: 0.0055469326
+Epoch: 325
+Loss: 0.0045453766
+Epoch: 350
+Loss: 0.0043447027
+Epoch: 375
+Loss: 0.0039914
+Epoch: 400
+Loss: 0.0039442317
+Epoch: 425
+Loss: 0.0039185616
+Epoch: 450
+Loss: 0.0034928953
+Epoch: 475
+Loss: 0.0035378695
+cosine: 0.7972745446291281
+Validation loss: 0.0036421446
+Testing with size: 100 on recursive data: 8000
+
+Vector size: 300, with padding: 150
+Learning rate: 0.001000
+Shape is: 
+(3024, 32, 450)
+Epoch: 0
+Loss: 0.6351879
+Epoch: 25
+Loss: 0.17757006
+Epoch: 50
+Loss: 0.05110792
+Epoch: 75
+Loss: 0.028670348
+Epoch: 100
+Loss: 0.020438118
+Epoch: 125
+Loss: 0.01580858
+Epoch: 150
+Loss: 0.013398113
+Epoch: 175
+Loss: 0.010647361
+Epoch: 200
+Loss: 0.009656036
+Epoch: 225
+Loss: 0.008105008
+Epoch: 250
+Loss: 0.0069933953
+Epoch: 275
+Loss: 0.0055826977
+Epoch: 300
+Loss: 0.005110013
+Epoch: 325
+Loss: 0.004769136
+Epoch: 350
+Loss: 0.0044063115
+Epoch: 375
+Loss: 0.0042029447
+Epoch: 400
+Loss: 0.0035107648
+Epoch: 425
+Loss: 0.003460525
+Epoch: 450
+Loss: 0.003444025
+Epoch: 475
+Loss: 0.0030956236
+cosine: 0.70743048726838
+Validation loss: 0.0033756006
+Testing nested SCs
+Testing with size: 100 on random data: 8000
+
+Vector size: 300, with padding: 150
+Learning rate: 0.001000
+Shape is: 
+(5037, 32, 450)
+Epoch: 0
+Loss: 0.63720405
+Epoch: 25
+Loss: 0.1640608
+Epoch: 50
+Loss: 0.0450254
+Epoch: 75
+Loss: 0.025567772
+Epoch: 100
+Loss: 0.017351374
+Epoch: 125
+Loss: 0.013166016
+Epoch: 150
+Loss: 0.010527993
+Epoch: 175
+Loss: 0.008961683
+Epoch: 200
+Loss: 0.0081429165
+Epoch: 225
+Loss: 0.0065484964
+Epoch: 250
+Loss: 0.0062523736
+Epoch: 275
+Loss: 0.0053583784
+Epoch: 300
+Loss: 0.005341975
+Epoch: 325
+Loss: 0.004978703
+Epoch: 350
+Loss: 0.0047769984
+Epoch: 375
+Loss: 0.0045631905
+Epoch: 400
+Loss: 0.004862879
+Epoch: 425
+Loss: 0.00466581
+Epoch: 450
+Loss: 0.004427198
+Epoch: 475
+Loss: 0.004755626
+cosine: 0.8722720020856228
+Validation loss: 0.0043829987
+Testing with size: 100 on recursive data: 8000
+
+Vector size: 300, with padding: 150
+Learning rate: 0.001000
+Shape is: 
+(5037, 32, 450)
+Epoch: 0
+Loss: 0.63771003
+Epoch: 25
+Loss: 0.16160543
+Epoch: 50
+Loss: 0.044435788
+Epoch: 75
+Loss: 0.024481261
+Epoch: 100
+Loss: 0.016101064
+Epoch: 125
+Loss: 0.012010806
+Epoch: 150
+Loss: 0.010628971
+Epoch: 175
+Loss: 0.008544526
+Epoch: 200
+Loss: 0.00808108
+Epoch: 225
+Loss: 0.0070506623
+Epoch: 250
+Loss: 0.0065980577
+Epoch: 275
+Loss: 0.0056833415
+Epoch: 300
+Loss: 0.0059910654
+Epoch: 325
+Loss: 0.005160993
+Epoch: 350
+Loss: 0.004884092
+Epoch: 375
+Loss: 0.0044790553
+Epoch: 400
+Loss: 0.0047959895
+Epoch: 425
+Loss: 0.0045662243
+Epoch: 450
+Loss: 0.004404811
+Epoch: 475
+Loss: 0.004071559
+cosine: 0.8088909428209918
+Validation loss: 0.004413856
+Testing nested PPAs
+Testing with size: 200 on random data: 500
+
+Vector size: 300, with padding: 150
+Learning rate: 0.001000
+Shape is: 
+(364, 32, 450)
+Epoch: 0
+Loss: 0.63539416
+Epoch: 25
+Loss: 0.27955297
+Epoch: 50
+Loss: 0.057866063
+Epoch: 75
+Loss: 0.024773795
+Epoch: 100
+Loss: 0.015423889
+Epoch: 125
+Loss: 0.011692685
+Epoch: 150
+Loss: 0.0077466774
+Epoch: 175
+Loss: 0.0069243694
+Epoch: 200
+Loss: 0.006630597
+Epoch: 225
+Loss: 0.0045452495
+Epoch: 250
+Loss: 0.0038214584
+Epoch: 275
+Loss: 0.0039191316
+Epoch: 300
+Loss: 0.0041085216
+Epoch: 325
+Loss: 0.0029360468
+Epoch: 350
+Loss: 0.0032040298
+Epoch: 375
+Loss: 0.0029130848
+Epoch: 400
+Loss: 0.0027761268
+Epoch: 425
+Loss: 0.002461232
+Epoch: 450
+Loss: 0.0027828782
+Epoch: 475
+Loss: 0.0030546738
+cosine: 0.629572163208695
+Validation loss: 0.002214771
+Testing with size: 200 on recursive data: 500
+
+Vector size: 300, with padding: 150
+Learning rate: 0.001000
+Shape is: 
+(364, 32, 450)
+Epoch: 0
+Loss: 0.6346457
+Epoch: 25
+Loss: 0.32819945
+Epoch: 50
+Loss: 0.071957365
+Epoch: 75
+Loss: 0.038852178
+Epoch: 100
+Loss: 0.02602398
+Epoch: 125
+Loss: 0.019971343
+Epoch: 150
+Loss: 0.015329898
+Epoch: 175
+Loss: 0.013161723
+Epoch: 200
+Loss: 0.011431689
+Epoch: 225
+Loss: 0.009740687
+Epoch: 250
+Loss: 0.0084796585
+Epoch: 275
+Loss: 0.007421854
+Epoch: 300
+Loss: 0.0069869803
+Epoch: 325
+Loss: 0.005941248
+Epoch: 350
+Loss: 0.005435979
+Epoch: 375
+Loss: 0.005646845
+Epoch: 400
+Loss: 0.005046346
+Epoch: 425
+Loss: 0.004352303
+Epoch: 450
+Loss: 0.0042915046
+Epoch: 475
+Loss: 0.0037811636
+cosine: 0.7331298829155422
+Validation loss: 0.003803623
+Testing nested SCs
+Testing with size: 200 on random data: 500
+
+Vector size: 300, with padding: 150
+Learning rate: 0.001000
+Shape is: 
+(386, 32, 450)
+Epoch: 0
+Loss: 0.63610846
+Epoch: 25
+Loss: 0.3765621
+Epoch: 50
+Loss: 0.046439815
+Epoch: 75
+Loss: 0.0151838055
+Epoch: 100
+Loss: 0.005872768
+Epoch: 125
+Loss: 0.004753248
+Epoch: 150
+Loss: 0.004527098
+Epoch: 175
+Loss: 0.003978686
+Epoch: 200
+Loss: 0.0035122929
+Epoch: 225
+Loss: 0.003532229
+Epoch: 250
+Loss: 0.0035766629
+Epoch: 275
+Loss: 0.003634518
+Epoch: 300
+Loss: 0.0035825907
+Epoch: 325
+Loss: 0.0031514724
+Epoch: 350
+Loss: 0.0038618788
+Epoch: 375
+Loss: 0.003519091
+Epoch: 400
+Loss: 0.003359912
+Epoch: 425
+Loss: 0.0043747486
+Epoch: 450
+Loss: 0.003180643
+Epoch: 475
+Loss: 0.004325756
+cosine: 0.8281189762364518
+Validation loss: 0.0031006027
+Testing with size: 200 on recursive data: 500
+
+Vector size: 300, with padding: 150
+Learning rate: 0.001000
+Shape is: 
+(386, 32, 450)
+Epoch: 0
+Loss: 0.63687223
+Epoch: 25
+Loss: 0.40176603
+Epoch: 50
+Loss: 0.06129832
+Epoch: 75
+Loss: 0.025559701
+Epoch: 100
+Loss: 0.015446816
+Epoch: 125
+Loss: 0.011760275
+Epoch: 150
+Loss: 0.008957187
+Epoch: 175
+Loss: 0.0076817493
+Epoch: 200
+Loss: 0.0073117614
+Epoch: 225
+Loss: 0.0067007323
+Epoch: 250
+Loss: 0.006191474
+Epoch: 275
+Loss: 0.005656063
+Epoch: 300
+Loss: 0.004963148
+Epoch: 325
+Loss: 0.004818078
+Epoch: 350
+Loss: 0.004558867
+Epoch: 375
+Loss: 0.004327566
+Epoch: 400
+Loss: 0.0039285724
+Epoch: 425
+Loss: 0.0038269653
+Epoch: 450
+Loss: 0.0040684384
+Epoch: 475
+Loss: 0.0035747709
+cosine: 0.8837275371489051
+Validation loss: 0.0037894922
+Testing nested PPAs
+Testing with size: 200 on random data: 1000
+
+Vector size: 300, with padding: 150
+Learning rate: 0.001000
+Shape is: 
+(639, 32, 450)
+Epoch: 0
+Loss: 0.63452774
+Epoch: 25
+Loss: 0.25056776
+Epoch: 50
+Loss: 0.058445238
+Epoch: 75
+Loss: 0.03199386
+Epoch: 100
+Loss: 0.02206475
+Epoch: 125
+Loss: 0.016815245
+Epoch: 150
+Loss: 0.014035422
+Epoch: 175
+Loss: 0.011264894
+Epoch: 200
+Loss: 0.0100748725
+Epoch: 225
+Loss: 0.00835486
+Epoch: 250
+Loss: 0.006989686
+Epoch: 275
+Loss: 0.006662145
+Epoch: 300
+Loss: 0.006001093
+Epoch: 325
+Loss: 0.005357757
+Epoch: 350
+Loss: 0.005066852
+Epoch: 375
+Loss: 0.0045692017
+Epoch: 400
+Loss: 0.0043023974
+Epoch: 425
+Loss: 0.0040267315
+Epoch: 450
+Loss: 0.004098453
+Epoch: 475
+Loss: 0.003944571
+cosine: 0.7041626983226267
+Validation loss: 0.0037568635
+Testing with size: 200 on recursive data: 1000
+
+Vector size: 300, with padding: 150
+Learning rate: 0.001000
+Shape is: 
+(639, 32, 450)
+Epoch: 0
+Loss: 0.6350537
+Epoch: 25
+Loss: 0.24229518
+Epoch: 50
+Loss: 0.059512958
+Epoch: 75
+Loss: 0.031431768
+Epoch: 100
+Loss: 0.019561395
+Epoch: 125
+Loss: 0.014487407
+Epoch: 150
+Loss: 0.011607003
+Epoch: 175
+Loss: 0.0096753305
+Epoch: 200
+Loss: 0.008584755
+Epoch: 225
+Loss: 0.0069362214
+Epoch: 250
+Loss: 0.006626805
+Epoch: 275
+Loss: 0.006107944
+Epoch: 300
+Loss: 0.005747834
+Epoch: 325
+Loss: 0.005443615
+Epoch: 350
+Loss: 0.004672057
+Epoch: 375
+Loss: 0.004494423
+Epoch: 400
+Loss: 0.0044819987
+Epoch: 425
+Loss: 0.004006509
+Epoch: 450
+Loss: 0.0038169904
+Epoch: 475
+Loss: 0.003786911
+cosine: 0.7455919728657823
+Validation loss: 0.0035214063
+Testing nested SCs
+Testing with size: 200 on random data: 1000
+
+Vector size: 300, with padding: 150
+Learning rate: 0.001000
+Shape is: 
+(748, 32, 450)
+Epoch: 0
+Loss: 0.6360834
+Epoch: 25
+Loss: 0.23343398
+Epoch: 50
+Loss: 0.047474023
+Epoch: 75
+Loss: 0.023499174
+Epoch: 100
+Loss: 0.012431683
+Epoch: 125
+Loss: 0.008466366
+Epoch: 150
+Loss: 0.006172439
+Epoch: 175
+Loss: 0.005495125
+Epoch: 200
+Loss: 0.005227734
+Epoch: 225
+Loss: 0.004509586
+Epoch: 250
+Loss: 0.00447634
+Epoch: 275
+Loss: 0.0042882143
+Epoch: 300
+Loss: 0.0040369947
+Epoch: 325
+Loss: 0.0041804127
+Epoch: 350
+Loss: 0.0036384182
+Epoch: 375
+Loss: 0.0037353444
+Epoch: 400
+Loss: 0.0035612124
+Epoch: 425
+Loss: 0.003737064
+Epoch: 450
+Loss: 0.0034590713
+Epoch: 475
+Loss: 0.0035572147
+cosine: 0.8422529087016389
+Validation loss: 0.0033011225
+Testing with size: 200 on recursive data: 1000
+
+Vector size: 300, with padding: 150
+Learning rate: 0.001000
+Shape is: 
+(748, 32, 450)
+Epoch: 0
+Loss: 0.6357749
+Epoch: 25
+Loss: 0.31342512
+Epoch: 50
+Loss: 0.05252904
+Epoch: 75
+Loss: 0.023088178
+Epoch: 100
+Loss: 0.013139512
+Epoch: 125
+Loss: 0.00962723
+Epoch: 150
+Loss: 0.006758754
+Epoch: 175
+Loss: 0.005704971
+Epoch: 200
+Loss: 0.0052490886
+Epoch: 225
+Loss: 0.004977039
+Epoch: 250
+Loss: 0.0042175693
+Epoch: 275
+Loss: 0.004193117
+Epoch: 300
+Loss: 0.003731149
+Epoch: 325
+Loss: 0.0039016244
+Epoch: 350
+Loss: 0.003358304
+Epoch: 375
+Loss: 0.0042954343
+Epoch: 400
+Loss: 0.003325117
+Epoch: 425
+Loss: 0.0034795632
+Epoch: 450
+Loss: 0.003462251
+Epoch: 475
+Loss: 0.003684478
+cosine: 0.7469552487806915
+Validation loss: 0.003087319
+Testing nested PPAs
+Testing with size: 200 on random data: 2000
+
+Vector size: 300, with padding: 150
+Learning rate: 0.001000
+Shape is: 
+(1059, 32, 450)
+Epoch: 0
+Loss: 0.6348471
+Epoch: 25
+Loss: 0.21303578
+Epoch: 50
+Loss: 0.048545584
+Epoch: 75
+Loss: 0.021722447
+Epoch: 100
+Loss: 0.012691214
+Epoch: 125
+Loss: 0.009867539
+Epoch: 150
+Loss: 0.0062906924
+Epoch: 175
+Loss: 0.0057644444
+Epoch: 200
+Loss: 0.004604534
+Epoch: 225
+Loss: 0.0045513236
+Epoch: 250
+Loss: 0.0041112774
+Epoch: 275
+Loss: 0.004020187
+Epoch: 300
+Loss: 0.0038179222
+Epoch: 325
+Loss: 0.0034876114
+Epoch: 350
+Loss: 0.0031559612
+Epoch: 375
+Loss: 0.0026190036
+Epoch: 400
+Loss: 0.002973944
+Epoch: 425
+Loss: 0.002361732
+Epoch: 450
+Loss: 0.0024646844
+Epoch: 475
+Loss: 0.0024025186
+cosine: 0.8357536428512268
+Validation loss: 0.0026114087
+Testing with size: 200 on recursive data: 2000
+
+Vector size: 300, with padding: 150
+Learning rate: 0.001000
+Shape is: 
+(1059, 32, 450)
+Epoch: 0
+Loss: 0.63367915
+Epoch: 25
+Loss: 0.1905396
+Epoch: 50
+Loss: 0.05405944
+Epoch: 75
+Loss: 0.029818038
+Epoch: 100
+Loss: 0.020141626
+Epoch: 125
+Loss: 0.015012875
+Epoch: 150
+Loss: 0.011530208
+Epoch: 175
+Loss: 0.010297891
+Epoch: 200
+Loss: 0.0078226635
+Epoch: 225
+Loss: 0.006769263
+Epoch: 250
+Loss: 0.0068407357
+Epoch: 275
+Loss: 0.0058952225
+Epoch: 300
+Loss: 0.0049868994
+Epoch: 325
+Loss: 0.004560924
+Epoch: 350
+Loss: 0.0048606647
+Epoch: 375
+Loss: 0.0041069835
+Epoch: 400
+Loss: 0.003875621
+Epoch: 425
+Loss: 0.003444136
+Epoch: 450
+Loss: 0.0035302367
+Epoch: 475
+Loss: 0.0033863317
+cosine: 0.8462732462125303
+Validation loss: 0.0036031762
+Testing nested SCs
+Testing with size: 200 on random data: 2000
+
+Vector size: 300, with padding: 150
+Learning rate: 0.001000
+Shape is: 
+(1428, 32, 450)
+Epoch: 0
+Loss: 0.63645005
+Epoch: 25
+Loss: 0.19945814
+Epoch: 50
+Loss: 0.049388617
+Epoch: 75
+Loss: 0.026731966
+Epoch: 100
+Loss: 0.017540643
+Epoch: 125
+Loss: 0.012870255
+Epoch: 150
+Loss: 0.0100399805
+Epoch: 175
+Loss: 0.009216331
+Epoch: 200
+Loss: 0.007265684
+Epoch: 225
+Loss: 0.0069104503
+Epoch: 250
+Loss: 0.006666502
+Epoch: 275
+Loss: 0.0062204697
+Epoch: 300
+Loss: 0.005611404
+Epoch: 325
+Loss: 0.0051600942
+Epoch: 350
+Loss: 0.005220599
+Epoch: 375
+Loss: 0.0044051595
+Epoch: 400
+Loss: 0.004446607
+Epoch: 425
+Loss: 0.0046264986
+Epoch: 450
+Loss: 0.0043528574
+Epoch: 475
+Loss: 0.004214004
+cosine: 0.767521646646991
+Validation loss: 0.0039192312
+Testing with size: 200 on recursive data: 2000
+
+Vector size: 300, with padding: 150
+Learning rate: 0.001000
+Shape is: 
+(1428, 32, 450)
+Epoch: 0
+Loss: 0.63623315
+Epoch: 25
+Loss: 0.20913535
+Epoch: 50
+Loss: 0.04041973
+Epoch: 75
+Loss: 0.016835382
+Epoch: 100
+Loss: 0.010078894
+Epoch: 125
+Loss: 0.0075258883
+Epoch: 150
+Loss: 0.0061552147
+Epoch: 175
+Loss: 0.005206119
+Epoch: 200
+Loss: 0.0051464587
+Epoch: 225
+Loss: 0.0047153383
+Epoch: 250
+Loss: 0.004133192
+Epoch: 275
+Loss: 0.004192353
+Epoch: 300
+Loss: 0.003883391
+Epoch: 325
+Loss: 0.0039253556
+Epoch: 350
+Loss: 0.0041436157
+Epoch: 375
+Loss: 0.0036723712
+Epoch: 400
+Loss: 0.0037672909
+Epoch: 425
+Loss: 0.0036339015
+Epoch: 450
+Loss: 0.0039202175
+Epoch: 475
+Loss: 0.0036176136
+cosine: 0.7994018562651991
+Validation loss: 0.0034845348
+Testing nested PPAs
+Testing with size: 200 on random data: 4000
+
+Vector size: 300, with padding: 150
+Learning rate: 0.001000
+Shape is: 
+(1812, 32, 450)
+Epoch: 0
+Loss: 0.63602024
+Epoch: 25
+Loss: 0.18025923
+Epoch: 50
+Loss: 0.052617762
+Epoch: 75
+Loss: 0.028165236
+Epoch: 100
+Loss: 0.017570658
+Epoch: 125
+Loss: 0.01260578
+Epoch: 150
+Loss: 0.009662553
+Epoch: 175
+Loss: 0.008022234
+Epoch: 200
+Loss: 0.0067364406
+Epoch: 225
+Loss: 0.0062837005
+Epoch: 250
+Loss: 0.0050309664
+Epoch: 275
+Loss: 0.00487544
+Epoch: 300
+Loss: 0.0043614516
+Epoch: 325
+Loss: 0.0038880885
+Epoch: 350
+Loss: 0.0036406661
+Epoch: 375
+Loss: 0.0041758986
+Epoch: 400
+Loss: 0.0033661337
+Epoch: 425
+Loss: 0.0032895056
+Epoch: 450
+Loss: 0.0031384826
+Epoch: 475
+Loss: 0.0031452992
+cosine: 0.7793381571931529
+Validation loss: 0.00288066
+Testing with size: 200 on recursive data: 4000
+
+Vector size: 300, with padding: 150
+Learning rate: 0.001000
+Shape is: 
+(1812, 32, 450)
+Epoch: 0
+Loss: 0.6353307
+Epoch: 25
+Loss: 0.19334178
+Epoch: 50
+Loss: 0.05516997
+Epoch: 75
+Loss: 0.028332774
+Epoch: 100
+Loss: 0.018250793
+Epoch: 125
+Loss: 0.013565324
+Epoch: 150
+Loss: 0.0111954175
+Epoch: 175
+Loss: 0.009233152
+Epoch: 200
+Loss: 0.00787044
+Epoch: 225
+Loss: 0.006811477
+Epoch: 250
+Loss: 0.006295938
+Epoch: 275
+Loss: 0.005512455
+Epoch: 300
+Loss: 0.005048166
+Epoch: 325
+Loss: 0.0050910506
+Epoch: 350
+Loss: 0.0043387096
+Epoch: 375
+Loss: 0.004725045
+Epoch: 400
+Loss: 0.004152184
+Epoch: 425
+Loss: 0.004341955
+Epoch: 450
+Loss: 0.003644591
+Epoch: 475
+Loss: 0.0036756236
+cosine: 0.815128827646675
+Validation loss: 0.0038269353
+Testing nested SCs
+Testing with size: 200 on random data: 4000
+
+Vector size: 300, with padding: 150
+Learning rate: 0.001000
+Shape is: 
+(2690, 32, 450)
+Epoch: 0
+Loss: 0.6367528
+Epoch: 25
+Loss: 0.16647805
+Epoch: 50
+Loss: 0.04244111
+Epoch: 75
+Loss: 0.021696353
+Epoch: 100
+Loss: 0.014562198
+Epoch: 125
+Loss: 0.011411729
+Epoch: 150
+Loss: 0.008941217
+Epoch: 175
+Loss: 0.007559212
+Epoch: 200
+Loss: 0.0066133547
+Epoch: 225
+Loss: 0.0061584837
+Epoch: 250
+Loss: 0.005837416
+Epoch: 275
+Loss: 0.0053892788
+Epoch: 300
+Loss: 0.0051294
+Epoch: 325
+Loss: 0.0045754556
+Epoch: 350
+Loss: 0.005229869
+Epoch: 375
+Loss: 0.004308353
+Epoch: 400
+Loss: 0.0045849206
+Epoch: 425
+Loss: 0.004428633
+Epoch: 450
+Loss: 0.004163989
+Epoch: 475
+Loss: 0.0044242446
+cosine: 0.8293482577626725
+Validation loss: 0.0041463594
+Testing with size: 200 on recursive data: 4000
+
+Vector size: 300, with padding: 150
+Learning rate: 0.001000
+Shape is: 
+(2690, 32, 450)
+Epoch: 0
+Loss: 0.6374115
+Epoch: 25
+Loss: 0.19736001
+Epoch: 50
+Loss: 0.040712353
+Epoch: 75
+Loss: 0.018601188
+Epoch: 100
+Loss: 0.010371041
+Epoch: 125
+Loss: 0.0077762553
+Epoch: 150
+Loss: 0.0069463686
+Epoch: 175
+Loss: 0.006629438
+Epoch: 200
+Loss: 0.005884022
+Epoch: 225
+Loss: 0.004927443
+Epoch: 250
+Loss: 0.005150991
+Epoch: 275
+Loss: 0.0042913794
+Epoch: 300
+Loss: 0.004522978
+Epoch: 325
+Loss: 0.004485511
+Epoch: 350
+Loss: 0.0042468277
+Epoch: 375
+Loss: 0.0039187
+Epoch: 400
+Loss: 0.0036884248
+Epoch: 425
+Loss: 0.0037806316
+Epoch: 450
+Loss: 0.0042092553
+Epoch: 475
+Loss: 0.0035949198
+cosine: 0.8414347802811715
+Validation loss: 0.003614336
+Testing nested PPAs
+Testing with size: 200 on random data: 8000
+
+Vector size: 300, with padding: 150
+Learning rate: 0.001000
+Shape is: 
+(3024, 32, 450)
+Epoch: 0
+Loss: 0.63517046
+Epoch: 25
+Loss: 0.17292893
+Epoch: 50
+Loss: 0.0493544
+Epoch: 75
+Loss: 0.025174426
+Epoch: 100
+Loss: 0.015744286
+Epoch: 125
+Loss: 0.011521246
+Epoch: 150
+Loss: 0.0080195535
+Epoch: 175
+Loss: 0.006747931
+Epoch: 200
+Loss: 0.005272968
+Epoch: 225
+Loss: 0.0047715143
+Epoch: 250
+Loss: 0.003868205
+Epoch: 275
+Loss: 0.0035102156
+Epoch: 300
+Loss: 0.0037039209
+Epoch: 325
+Loss: 0.003173502
+Epoch: 350
+Loss: 0.0032792902
+Epoch: 375
+Loss: 0.002989254
+Epoch: 400
+Loss: 0.0026426148
+Epoch: 425
+Loss: 0.0025973401
+Epoch: 450
+Loss: 0.0026694948
+Epoch: 475
+Loss: 0.0031483283
+cosine: 0.8237752282313274
+Validation loss: 0.0027108337
+Testing with size: 200 on recursive data: 8000
+
+Vector size: 300, with padding: 150
+Learning rate: 0.001000
+Shape is: 
+(3024, 32, 450)
+Epoch: 0
+Loss: 0.6357642
+Epoch: 25
+Loss: 0.19160083
+Epoch: 50
+Loss: 0.047379833
+Epoch: 75
+Loss: 0.02561771
+Epoch: 100
+Loss: 0.014667646
+Epoch: 125
+Loss: 0.010941844
+Epoch: 150
+Loss: 0.007620869
+Epoch: 175
+Loss: 0.0065373685
+Epoch: 200
+Loss: 0.0062806243
+Epoch: 225
+Loss: 0.0051323893
+Epoch: 250
+Loss: 0.0062926393
+Epoch: 275
+Loss: 0.0041890116
+Epoch: 300
+Loss: 0.004242429
+Epoch: 325
+Loss: 0.004105031
+Epoch: 350
+Loss: 0.0032892374
+Epoch: 375
+Loss: 0.0037869676
+Epoch: 400
+Loss: 0.003354825
+Epoch: 425
+Loss: 0.0030932364
+Epoch: 450
+Loss: 0.0029755773
+Epoch: 475
+Loss: 0.0031352357
+cosine: 0.6501492326239406
+Validation loss: 0.0031094456
+Testing nested SCs
+Testing with size: 200 on random data: 8000
+
+Vector size: 300, with padding: 150
+Learning rate: 0.001000
+Shape is: 
+(5037, 32, 450)
+Epoch: 0
+Loss: 0.6363926
+Epoch: 25
+Loss: 0.1633286
+Epoch: 50
+Loss: 0.037640844
+Epoch: 75
+Loss: 0.019056376
+Epoch: 100
+Loss: 0.0123288985
+Epoch: 125
+Loss: 0.008646951
+Epoch: 150
+Loss: 0.0073587312
+Epoch: 175
+Loss: 0.0063898875
+Epoch: 200
+Loss: 0.0061833593
+Epoch: 225
+Loss: 0.0056937626
+Epoch: 250
+Loss: 0.0049744924
+Epoch: 275
+Loss: 0.005572387
+Epoch: 300
+Loss: 0.0045100087
+Epoch: 325
+Loss: 0.004462088
+Epoch: 350
+Loss: 0.004410766
+Epoch: 375
+Loss: 0.004190045
+Epoch: 400
+Loss: 0.004105311
+Epoch: 425
+Loss: 0.0041626683
+Epoch: 450
+Loss: 0.004110069
+Epoch: 475
+Loss: 0.00449685
+cosine: 0.7425402575524875
+Validation loss: 0.003905385
+Testing with size: 200 on recursive data: 8000
+
+Vector size: 300, with padding: 150
+Learning rate: 0.001000
+Shape is: 
+(5037, 32, 450)
+Epoch: 0
+Loss: 0.6381734
+Epoch: 25
+Loss: 0.15108469
+Epoch: 50
+Loss: 0.030795233
+Epoch: 75
+Loss: 0.016008481
+Epoch: 100
+Loss: 0.011293859
+Epoch: 125
+Loss: 0.009505188
+Epoch: 150
+Loss: 0.0073130243
+Epoch: 175
+Loss: 0.006800875
+Epoch: 200
+Loss: 0.0054804017
+Epoch: 225
+Loss: 0.0057233316
+Epoch: 250
+Loss: 0.0047441837
+Epoch: 275
+Loss: 0.0044004335
+Epoch: 300
+Loss: 0.004487433
+Epoch: 325
+Loss: 0.0041551297
+Epoch: 350
+Loss: 0.0040141763
+Epoch: 375
+Loss: 0.0039848937
+Epoch: 400
+Loss: 0.0038159033
+Epoch: 425
+Loss: 0.0040724073
+Epoch: 450
+Loss: 0.0036311266
+Epoch: 475
+Loss: 0.0038469841
+cosine: 0.8853903102799211
+Validation loss: 0.0038454607
+Testing nested PPAs
+Testing with size: 300 on random data: 500
+
+Vector size: 300, with padding: 150
+Learning rate: 0.001000
+Shape is: 
+(364, 32, 450)
+Epoch: 0
+Loss: 0.63440335
+Epoch: 25
+Loss: 0.26422134
+Epoch: 50
+Loss: 0.053655595
+Epoch: 75
+Loss: 0.023365742
+Epoch: 100
+Loss: 0.013014435
+Epoch: 125
+Loss: 0.009485363
+Epoch: 150
+Loss: 0.008600207
+Epoch: 175
+Loss: 0.0060086274
+Epoch: 200
+Loss: 0.0058121947
+Epoch: 225
+Loss: 0.005080209
+Epoch: 250
+Loss: 0.0041177343
+Epoch: 275
+Loss: 0.004459037
+Epoch: 300
+Loss: 0.003738072
+Epoch: 325
+Loss: 0.0031927729
+Epoch: 350
+Loss: 0.00343981
+Epoch: 375
+Loss: 0.00296637
+Epoch: 400
+Loss: 0.0033461717
+Epoch: 425
+Loss: 0.00274883
+Epoch: 450
+Loss: 0.0029229769
+Epoch: 475
+Loss: 0.0026245113
+cosine: 0.7620410191357768
+Validation loss: 0.0024099334
+Testing with size: 300 on recursive data: 500
+
+Vector size: 300, with padding: 150
+Learning rate: 0.001000
+Shape is: 
+(364, 32, 450)
+Epoch: 0
+Loss: 0.63497597
+Epoch: 25
+Loss: 0.31207132
+Epoch: 50
+Loss: 0.06472521
+Epoch: 75
+Loss: 0.032288454
+Epoch: 100
+Loss: 0.021940935
+Epoch: 125
+Loss: 0.015586401
+Epoch: 150
+Loss: 0.012489346
+Epoch: 175
+Loss: 0.0098294215
+Epoch: 200
+Loss: 0.008580275
+Epoch: 225
+Loss: 0.006377985
+Epoch: 250
+Loss: 0.005995945
+Epoch: 275
+Loss: 0.005416638
+Epoch: 300
+Loss: 0.0047786147
+Epoch: 325
+Loss: 0.0046963035
+Epoch: 350
+Loss: 0.004580017
+Epoch: 375
+Loss: 0.0043111634
+Epoch: 400
+Loss: 0.003983343
+Epoch: 425
+Loss: 0.00362777
+Epoch: 450
+Loss: 0.0033021495
+Epoch: 475
+Loss: 0.0033940757
+cosine: 0.7561771993759696
+Validation loss: 0.0031322073
+Testing nested SCs
+Testing with size: 300 on random data: 500
+
+Vector size: 300, with padding: 150
+Learning rate: 0.001000
+Shape is: 
+(386, 32, 450)
+Epoch: 0
+Loss: 0.6363029
+Epoch: 25
+Loss: 0.37523395
+Epoch: 50
+Loss: 0.052541435
+Epoch: 75
+Loss: 0.021435166
+Epoch: 100
+Loss: 0.012385671
+Epoch: 125
+Loss: 0.008991508
+Epoch: 150
+Loss: 0.007327254
+Epoch: 175
+Loss: 0.0064526503
+Epoch: 200
+Loss: 0.005787078
+Epoch: 225
+Loss: 0.0062096533
+Epoch: 250
+Loss: 0.005264699
+Epoch: 275
+Loss: 0.005077548
+Epoch: 300
+Loss: 0.004651198
+Epoch: 325
+Loss: 0.0053908965
+Epoch: 350
+Loss: 0.004376351
+Epoch: 375
+Loss: 0.004679613
+Epoch: 400
+Loss: 0.0043512383
+Epoch: 425
+Loss: 0.0039440016
+Epoch: 450
+Loss: 0.004063473
+Epoch: 475
+Loss: 0.0040882807
+cosine: 0.8387093423815472
+Validation loss: 0.0039446345
+Testing with size: 300 on recursive data: 500
+
+Vector size: 300, with padding: 150
+Learning rate: 0.001000
+Shape is: 
+(386, 32, 450)
+Epoch: 0
+Loss: 0.63630813
+Epoch: 25
+Loss: 0.4765344
+Epoch: 50
+Loss: 0.0619056
+Epoch: 75
+Loss: 0.02594277
+Epoch: 100
+Loss: 0.015119638
+Epoch: 125
+Loss: 0.01231398
+Epoch: 150
+Loss: 0.008539637
+Epoch: 175
+Loss: 0.0073519694
+Epoch: 200
+Loss: 0.006424193
+Epoch: 225
+Loss: 0.006390269
+Epoch: 250
+Loss: 0.0059525343
+Epoch: 275
+Loss: 0.004712292
+Epoch: 300
+Loss: 0.0047137784
+Epoch: 325
+Loss: 0.004377251
+Epoch: 350
+Loss: 0.0043019885
+Epoch: 375
+Loss: 0.0046375524
+Epoch: 400
+Loss: 0.0041118558
+Epoch: 425
+Loss: 0.0038458696
+Epoch: 450
+Loss: 0.0037898854
+Epoch: 475
+Loss: 0.00393118
+cosine: 0.8990474580095958
+Validation loss: 0.0034587693
+Testing nested PPAs
+Testing with size: 300 on random data: 1000
+
+Vector size: 300, with padding: 150
+Learning rate: 0.001000
+Shape is: 
+(639, 32, 450)
+Epoch: 0
+Loss: 0.6359534
+Epoch: 25
+Loss: 0.25342888
+Epoch: 50
+Loss: 0.056179058
+Epoch: 75
+Loss: 0.027154483
+Epoch: 100
+Loss: 0.017288927
+Epoch: 125
+Loss: 0.012658073
+Epoch: 150
+Loss: 0.009222607
+Epoch: 175
+Loss: 0.0074988673
+Epoch: 200
+Loss: 0.007904864
+Epoch: 225
+Loss: 0.0056288084
+Epoch: 250
+Loss: 0.0057903966
+Epoch: 275
+Loss: 0.0044869403
+Epoch: 300
+Loss: 0.0048315153
+Epoch: 325
+Loss: 0.0040798443
+Epoch: 350
+Loss: 0.00455114
+Epoch: 375
+Loss: 0.0037308496
+Epoch: 400
+Loss: 0.0036773267
+Epoch: 425
+Loss: 0.0035854303
+Epoch: 450
+Loss: 0.0032584188
+Epoch: 475
+Loss: 0.0035330555
+cosine: 0.6510285296753361
+Validation loss: 0.0028826324
+Testing with size: 300 on recursive data: 1000
+
+Vector size: 300, with padding: 150
+Learning rate: 0.001000
+Shape is: 
+(639, 32, 450)
+Epoch: 0
+Loss: 0.63559055
+Epoch: 25
+Loss: 0.22022784
+Epoch: 50
+Loss: 0.06599879
+Epoch: 75
+Loss: 0.039473303
+Epoch: 100
+Loss: 0.025382852
+Epoch: 125
+Loss: 0.019509325
+Epoch: 150
+Loss: 0.015864324
+Epoch: 175
+Loss: 0.013537445
+Epoch: 200
+Loss: 0.011325929
+Epoch: 225
+Loss: 0.009962715
+Epoch: 250
+Loss: 0.0090993345
+Epoch: 275
+Loss: 0.008113352
+Epoch: 300
+Loss: 0.0077547543
+Epoch: 325
+Loss: 0.007484393
+Epoch: 350
+Loss: 0.0069927503
+Epoch: 375
+Loss: 0.0067287255
+Epoch: 400
+Loss: 0.0057828296
+Epoch: 425
+Loss: 0.005524951
+Epoch: 450
+Loss: 0.0054147304
+Epoch: 475
+Loss: 0.0045504975
+cosine: 0.8589964465321518
+Validation loss: 0.0053194836
+Testing nested SCs
+Testing with size: 300 on random data: 1000
+
+Vector size: 300, with padding: 150
+Learning rate: 0.001000
+Shape is: 
+(748, 32, 450)
+Epoch: 0
+Loss: 0.63660306
+Epoch: 25
+Loss: 0.2140411
+Epoch: 50
+Loss: 0.05453254
+Epoch: 75
+Loss: 0.029456105
+Epoch: 100
+Loss: 0.019601123
+Epoch: 125
+Loss: 0.014057679
+Epoch: 150
+Loss: 0.011596572
+Epoch: 175
+Loss: 0.0102236895
+Epoch: 200
+Loss: 0.009018037
+Epoch: 225
+Loss: 0.0077159638
+Epoch: 250
+Loss: 0.0073442413
+Epoch: 275
+Loss: 0.006765981
+Epoch: 300
+Loss: 0.006291227
+Epoch: 325
+Loss: 0.006193241
+Epoch: 350
+Loss: 0.005922803
+Epoch: 375
+Loss: 0.005229575
+Epoch: 400
+Loss: 0.005197226
+Epoch: 425
+Loss: 0.0049098693
+Epoch: 450
+Loss: 0.0043999143
+Epoch: 475
+Loss: 0.004547863
+cosine: 0.6832040877228532
+Validation loss: 0.0042570755
+Testing with size: 300 on recursive data: 1000
+
+Vector size: 300, with padding: 150
+Learning rate: 0.001000
+Shape is: 
+(748, 32, 450)
+Epoch: 0
+Loss: 0.63604975
+Epoch: 25
+Loss: 0.24198088
+Epoch: 50
+Loss: 0.052510317
+Epoch: 75
+Loss: 0.027189385
+Epoch: 100
+Loss: 0.018427905
+Epoch: 125
+Loss: 0.0123998895
+Epoch: 150
+Loss: 0.009744628
+Epoch: 175
+Loss: 0.007072803
+Epoch: 200
+Loss: 0.006670701
+Epoch: 225
+Loss: 0.0056627486
+Epoch: 250
+Loss: 0.0051956056
+Epoch: 275
+Loss: 0.0053848834
+Epoch: 300
+Loss: 0.0048969965
+Epoch: 325
+Loss: 0.0048695276
+Epoch: 350
+Loss: 0.004427216
+Epoch: 375
+Loss: 0.004457801
+Epoch: 400
+Loss: 0.00496245
+Epoch: 425
+Loss: 0.003944354
+Epoch: 450
+Loss: 0.0037828814
+Epoch: 475
+Loss: 0.0037844582
+cosine: 0.8147008505379894
+Validation loss: 0.0036492045
+Testing nested PPAs
+Testing with size: 300 on random data: 2000
+
+Vector size: 300, with padding: 150
+Learning rate: 0.001000
+Shape is: 
+(1059, 32, 450)
+Epoch: 0
+Loss: 0.6351811
+Epoch: 25
+Loss: 0.21124667
+Epoch: 50
+Loss: 0.06076463
+Epoch: 75
+Loss: 0.033824265
+Epoch: 100
+Loss: 0.022857467
+Epoch: 125
+Loss: 0.01677874
+Epoch: 150
+Loss: 0.013304291
+Epoch: 175
+Loss: 0.010107474
+Epoch: 200
+Loss: 0.008351532
+Epoch: 225
+Loss: 0.007685071
+Epoch: 250
+Loss: 0.0068528345
+Epoch: 275
+Loss: 0.0057614725
+Epoch: 300
+Loss: 0.005587235
+Epoch: 325
+Loss: 0.005400199
+Epoch: 350
+Loss: 0.0047894986
+Epoch: 375
+Loss: 0.004774229
+Epoch: 400
+Loss: 0.004656953
+Epoch: 425
+Loss: 0.0040123276
+Epoch: 450
+Loss: 0.0036182269
+Epoch: 475
+Loss: 0.0040962975
+cosine: 0.7023583616380579
+Validation loss: 0.0034965193
+Testing with size: 300 on recursive data: 2000
+
+Vector size: 300, with padding: 150
+Learning rate: 0.001000
+Shape is: 
+(1059, 32, 450)
+Epoch: 0
+Loss: 0.6355025
+Epoch: 25
+Loss: 0.20681608
+Epoch: 50
+Loss: 0.046220433
+Epoch: 75
+Loss: 0.02204842
+Epoch: 100
+Loss: 0.013916494
+Epoch: 125
+Loss: 0.010398167
+Epoch: 150
+Loss: 0.008978874
+Epoch: 175
+Loss: 0.006996858
+Epoch: 200
+Loss: 0.0057386593
+Epoch: 225
+Loss: 0.0052032545
+Epoch: 250
+Loss: 0.004388416
+Epoch: 275
+Loss: 0.0041376976
+Epoch: 300
+Loss: 0.003737655
+Epoch: 325
+Loss: 0.004346354
+Epoch: 350
+Loss: 0.0031869207
+Epoch: 375
+Loss: 0.0036504176
+Epoch: 400
+Loss: 0.0030242747
+Epoch: 425
+Loss: 0.0033202812
+Epoch: 450
+Loss: 0.002923716
+Epoch: 475
+Loss: 0.0027682094
+cosine: 0.8505297915996254
+Validation loss: 0.0031730926
+Testing nested SCs
+Testing with size: 300 on random data: 2000
+
+Vector size: 300, with padding: 150
+Learning rate: 0.001000
+Shape is: 
+(1428, 32, 450)
+Epoch: 0
+Loss: 0.6360373
+Epoch: 25
+Loss: 0.2063983
+Epoch: 50
+Loss: 0.036097057
+Epoch: 75
+Loss: 0.015744053
+Epoch: 100
+Loss: 0.009816535
+Epoch: 125
+Loss: 0.0083468305
+Epoch: 150
+Loss: 0.007085215
+Epoch: 175
+Loss: 0.007801995
+Epoch: 200
+Loss: 0.005478779
+Epoch: 225
+Loss: 0.005110236
+Epoch: 250
+Loss: 0.0059067146
+Epoch: 275
+Loss: 0.004199402
+Epoch: 300
+Loss: 0.004164764
+Epoch: 325
+Loss: 0.0044861697
+Epoch: 350
+Loss: 0.0042794305
+Epoch: 375
+Loss: 0.0038827918
+Epoch: 400
+Loss: 0.0039987406
+Epoch: 425
+Loss: 0.0037496893
+Epoch: 450
+Loss: 0.003917959
+Epoch: 475
+Loss: 0.0040817526
+cosine: 0.8979430075685453
+Validation loss: 0.0036573163
+Testing with size: 300 on recursive data: 2000
+
+Vector size: 300, with padding: 150
+Learning rate: 0.001000
+Shape is: 
+(1428, 32, 450)
+Epoch: 0
+Loss: 0.6366652
+Epoch: 25
+Loss: 0.20579799
+Epoch: 50
+Loss: 0.041222014
+Epoch: 75
+Loss: 0.020122062
+Epoch: 100
+Loss: 0.013340374
+Epoch: 125
+Loss: 0.008820655
+Epoch: 150
+Loss: 0.007945038
+Epoch: 175
+Loss: 0.0058537875
+Epoch: 200
+Loss: 0.00536735
+Epoch: 225
+Loss: 0.004976505
+Epoch: 250
+Loss: 0.0047249957
+Epoch: 275
+Loss: 0.0046802154
+Epoch: 300
+Loss: 0.0042133136
+Epoch: 325
+Loss: 0.003933205
+Epoch: 350
+Loss: 0.0040638773
+Epoch: 375
+Loss: 0.0038544508
+Epoch: 400
+Loss: 0.0039741695
+Epoch: 425
+Loss: 0.0035907452
+Epoch: 450
+Loss: 0.0036391318
+Epoch: 475
+Loss: 0.0037581176
+cosine: 0.7654253079166758
+Validation loss: 0.003486717
+Testing nested PPAs
+Testing with size: 300 on random data: 4000
+
+Vector size: 300, with padding: 150
+Learning rate: 0.001000
+Shape is: 
+(1812, 32, 450)
+Epoch: 0
+Loss: 0.6357752
+Epoch: 25
+Loss: 0.19258597
+Epoch: 50
+Loss: 0.052754834
+Epoch: 75
+Loss: 0.028319562
+Epoch: 100
+Loss: 0.018888686
+Epoch: 125
+Loss: 0.0136772115
+Epoch: 150
+Loss: 0.010134127
+Epoch: 175
+Loss: 0.007638456
+Epoch: 200
+Loss: 0.0069715707
+Epoch: 225
+Loss: 0.0058635687
+Epoch: 250
+Loss: 0.0053669713
+Epoch: 275
+Loss: 0.004681057
+Epoch: 300
+Loss: 0.005142849
+Epoch: 325
+Loss: 0.004356878
+Epoch: 350
+Loss: 0.0041026785
+Epoch: 375
+Loss: 0.003986528
+Epoch: 400
+Loss: 0.0037887124
+Epoch: 425
+Loss: 0.0032142382
+Epoch: 450
+Loss: 0.0032086563
+Epoch: 475
+Loss: 0.0030326643
+cosine: 0.8308148166191284
+Validation loss: 0.002940143
+Testing with size: 300 on recursive data: 4000
+
+Vector size: 300, with padding: 150
+Learning rate: 0.001000
+Shape is: 
+(1812, 32, 450)
+Epoch: 0
+Loss: 0.63538504
+Epoch: 25
+Loss: 0.17851816
+Epoch: 50
+Loss: 0.038760126
+Epoch: 75
+Loss: 0.018223096
+Epoch: 100
+Loss: 0.01168889
+Epoch: 125
+Loss: 0.007864252
+Epoch: 150
+Loss: 0.0069127004
+Epoch: 175
+Loss: 0.0053358236
+Epoch: 200
+Loss: 0.004592675
+Epoch: 225
+Loss: 0.004835906
+Epoch: 250
+Loss: 0.0035562816
+Epoch: 275
+Loss: 0.0035166612
+Epoch: 300
+Loss: 0.0033560935
+Epoch: 325
+Loss: 0.0033890377
+Epoch: 350
+Loss: 0.0030452104
+Epoch: 375
+Loss: 0.002974742
+Epoch: 400
+Loss: 0.0028133043
+Epoch: 425
+Loss: 0.0028382852
+Epoch: 450
+Loss: 0.0025862576
+Epoch: 475
+Loss: 0.0025985958
+cosine: 0.7644814677912405
+Validation loss: 0.0025562837
+Testing nested SCs
+Testing with size: 300 on random data: 4000
+
+Vector size: 300, with padding: 150
+Learning rate: 0.001000
+Shape is: 
+(2690, 32, 450)
+Epoch: 0
+Loss: 0.6372963
+Epoch: 25
+Loss: 0.19085781
+Epoch: 50
+Loss: 0.042288117
+Epoch: 75
+Loss: 0.022369036
+Epoch: 100
+Loss: 0.013996915
+Epoch: 125
+Loss: 0.011325456
+Epoch: 150
+Loss: 0.008533285
+Epoch: 175
+Loss: 0.0072859293
+Epoch: 200
+Loss: 0.0054534217
+Epoch: 225
+Loss: 0.0053866077
+Epoch: 250
+Loss: 0.0047118384
+Epoch: 275
+Loss: 0.0041626054
+Epoch: 300
+Loss: 0.004233239
+Epoch: 325
+Loss: 0.0038469615
+Epoch: 350
+Loss: 0.003904699
+Epoch: 375
+Loss: 0.0039866404
+Epoch: 400
+Loss: 0.0037647395
+Epoch: 425
+Loss: 0.0040496076
+Epoch: 450
+Loss: 0.0038054264
+Epoch: 475
+Loss: 0.0036800557
+cosine: 0.8167430179430232
+Validation loss: 0.0041521383
+Testing with size: 300 on recursive data: 4000
+
+Vector size: 300, with padding: 150
+Learning rate: 0.001000
+Shape is: 
+(2690, 32, 450)
+Epoch: 0
+Loss: 0.63581115
+Epoch: 25
+Loss: 0.17567275
+Epoch: 50
+Loss: 0.037175898
+Epoch: 75
+Loss: 0.015943319
+Epoch: 100
+Loss: 0.009418269
+Epoch: 125
+Loss: 0.007263898
+Epoch: 150
+Loss: 0.0055917976
+Epoch: 175
+Loss: 0.0051357886
+Epoch: 200
+Loss: 0.0042714234
+Epoch: 225
+Loss: 0.005252725
+Epoch: 250
+Loss: 0.0041511934
+Epoch: 275
+Loss: 0.0041280743
+Epoch: 300
+Loss: 0.004009162
+Epoch: 325
+Loss: 0.0036390498
+Epoch: 350
+Loss: 0.0036804725
+Epoch: 375
+Loss: 0.0040880493
+Epoch: 400
+Loss: 0.0036304265
+Epoch: 425
+Loss: 0.0038372937
+Epoch: 450
+Loss: 0.003542688
+Epoch: 475
+Loss: 0.0038576974
+cosine: 0.8355401676899447
+Validation loss: 0.0035396742
+Testing nested PPAs
+Testing with size: 300 on random data: 8000
+
+Vector size: 300, with padding: 150
+Learning rate: 0.001000
+Shape is: 
+(3024, 32, 450)
+Epoch: 0
+Loss: 0.6352634
+Epoch: 25
+Loss: 0.18317571
+Epoch: 50
+Loss: 0.0544818
+Epoch: 75
+Loss: 0.029673446
+Epoch: 100
+Loss: 0.020786341
+Epoch: 125
+Loss: 0.016461259
+Epoch: 150
+Loss: 0.012983439
+Epoch: 175
+Loss: 0.011067062
+Epoch: 200
+Loss: 0.009954578
+Epoch: 225
+Loss: 0.009033452
+Epoch: 250
+Loss: 0.0077755367
+Epoch: 275
+Loss: 0.007300136
+Epoch: 300
+Loss: 0.0065701064
+Epoch: 325
+Loss: 0.0062234374
+Epoch: 350
+Loss: 0.00588181
+Epoch: 375
+Loss: 0.005099261
+Epoch: 400
+Loss: 0.004915894
+Epoch: 425
+Loss: 0.0043740137
+Epoch: 450
+Loss: 0.0043646838
+Epoch: 475
+Loss: 0.0040863557
+cosine: 0.8246602056074479
+Validation loss: 0.00415553
+Testing with size: 300 on recursive data: 8000
+
+Vector size: 300, with padding: 150
+Learning rate: 0.001000
+Shape is: 
+(3024, 32, 450)
+Epoch: 0
+Loss: 0.6361951
+Epoch: 25
+Loss: 0.1712682
+Epoch: 50
+Loss: 0.045627497
+Epoch: 75
+Loss: 0.021011082
+Epoch: 100
+Loss: 0.014084058
+Epoch: 125
+Loss: 0.009504349
+Epoch: 150
+Loss: 0.007823734
+Epoch: 175
+Loss: 0.0060118088
+Epoch: 200
+Loss: 0.005233855
+Epoch: 225
+Loss: 0.0061297473
+Epoch: 250
+Loss: 0.004318616
+Epoch: 275
+Loss: 0.0040295213
+Epoch: 300
+Loss: 0.0037981123
+Epoch: 325
+Loss: 0.0032303256
+Epoch: 350
+Loss: 0.0035663832
+Epoch: 375
+Loss: 0.002823963
+Epoch: 400
+Loss: 0.0032726182
+Epoch: 425
+Loss: 0.0028190245
+Epoch: 450
+Loss: 0.003170943
+Epoch: 475
+Loss: 0.002616107
+cosine: 0.809463719203366
+Validation loss: 0.0030760835
+Testing nested SCs
+Testing with size: 300 on random data: 8000
+
+Vector size: 300, with padding: 150
+Learning rate: 0.001000
+Shape is: 
+(5037, 32, 450)
+Epoch: 0
+Loss: 0.6379804
+Epoch: 25
+Loss: 0.16468269
+Epoch: 50
+Loss: 0.04434455
+Epoch: 75
+Loss: 0.023288919
+Epoch: 100
+Loss: 0.014545223
+Epoch: 125
+Loss: 0.010961545
+Epoch: 150
+Loss: 0.009002857
+Epoch: 175
+Loss: 0.0066454536
+Epoch: 200
+Loss: 0.0061704856
+Epoch: 225
+Loss: 0.0053351517
+Epoch: 250
+Loss: 0.0054449057
+Epoch: 275
+Loss: 0.0047177956
+Epoch: 300
+Loss: 0.0048914
+Epoch: 325
+Loss: 0.0049656923
+Epoch: 350
+Loss: 0.004382873
+Epoch: 375
+Loss: 0.00440131
+Epoch: 400
+Loss: 0.0042807963
+Epoch: 425
+Loss: 0.0047389255
+Epoch: 450
+Loss: 0.0039453073
+Epoch: 475
+Loss: 0.003947028
+cosine: 0.8547926122964554
+Validation loss: 0.004128808
+Testing with size: 300 on recursive data: 8000
+
+Vector size: 300, with padding: 150
+Learning rate: 0.001000
+Shape is: 
+(5037, 32, 450)
+Epoch: 0
+Loss: 0.63790035
+Epoch: 25
+Loss: 0.16066438
+Epoch: 50
+Loss: 0.03602476
+Epoch: 75
+Loss: 0.015408336
+Epoch: 100
+Loss: 0.009999018
+Epoch: 125
+Loss: 0.0069548977
+Epoch: 150
+Loss: 0.006804845
+Epoch: 175
+Loss: 0.0054798853
+Epoch: 200
+Loss: 0.0055166706
+Epoch: 225
+Loss: 0.00440743
+Epoch: 250
+Loss: 0.0052734646
+Epoch: 275
+Loss: 0.0041103554
+Epoch: 300
+Loss: 0.004266542
+Epoch: 325
+Loss: 0.0038028494
+Epoch: 350
+Loss: 0.0041290233
+Epoch: 375
+Loss: 0.0037161657
+Epoch: 400
+Loss: 0.003940679
+Epoch: 425
+Loss: 0.003476091
+Epoch: 450
+Loss: 0.0033390403
+Epoch: 475
+Loss: 0.0034781462
+cosine: 0.8908002768048947
+Validation loss: 0.003339535
