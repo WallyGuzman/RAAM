@@ -16,7 +16,7 @@ def main(args):
                 out += elements[iter] + ' [' + ('{0:.' + str(args.num_dec) + 'f}').format(prob) + ']'
                 #print(elements[iter])
             else:
-                out += elements[iter] + ' [' + ' [' + ('{0:.' + str(args.num_dec) + 'f}').format(prob) + '] |'
+                out += elements[iter] + ' [' + ('{0:.' + str(args.num_dec) + 'f}').format(prob) + '] |'
 
         print(out)
 
