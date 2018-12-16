@@ -18,6 +18,7 @@ def main(args):
     sen_len = 32
     encs, enc_len = produce_encodings(args.grammar_file)
     sentence_dict = enc_training_data(args.training_file, encs, sen_len)
+    print("HEre ", len(list(sentence_dict.keys())))
     #print(sentence_dict)
     hidden_size = args.hidden_size
     learning_rate = args.lr
@@ -81,7 +82,9 @@ def main(args):
     #test_sentence_dict = generate_samples(vectors, test_corpus, word_vector_size, padding)
 
     # use 4/5 of the sentences to train, and 1/5 to validate
+    print(len(sentence_dict))
     cut = (4 * len(sentence_dict.values())) // 5
+    print(cut)
     training_data = list(sentence_dict.values())[0:cut]
     testing_data = list(sentence_dict.values())[cut:]
     #training_data = list(sentence_dict.values())
@@ -174,10 +177,12 @@ def enc_training_data(corpus, encs, max_sen_len):
     print(encs)
     len_enc = len(list(encs.values())[0])
     sen_encs = {}
-
+    i = 0
     for line in in_file:
         tokens = line.split(".")[0].split()[0:32]
         sen_encs[re.sub(' .\n', '', line)] = np.asarray([encs[item] for item in tokens] + [[0] * len_enc] * (max_sen_len - len(tokens)))
+        i += 1
+    print(i)
     in_file.close()
 
     return sen_encs
@@ -220,7 +225,7 @@ def parse_sentences(corpus):
 
 def train(sess, optimizer, data, gold_sentences, word_dict, freq_report, loss, num_epochs, ingest, egest, orig, word_dim_size):
     print("Shape is: ")
-    print(data.shape)
+    print("Data ", data.shape)
     for i in range(num_epochs):
         _, train_loss, encoded, decoded = sess.run([optimizer, loss, ingest, egest], feed_dict={orig: data})
         if i % 25 == 0:
