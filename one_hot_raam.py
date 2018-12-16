@@ -9,7 +9,7 @@ import sys
 import argparse
 import math
 from scipy import spatial
-
+from find_nn import find_nn
 
 def main(args):
     word_vector_size = args.vec_dim
@@ -22,6 +22,8 @@ def main(args):
     hidden_size = args.hidden_size
     learning_rate = args.lr
     input_size = enc_len * 2
+    freq_report = args.freq_report
+    report_test = args.report_test
 
     #print("Vector size: %d, with padding: %d" % (word_vector_size, padding))
     print("Learning rate: %f" % learning_rate)
@@ -86,8 +88,12 @@ def main(args):
     #testing_data = list(test_sentence_dict.values())
     print(np.array(training_data)[0])
     # Where the magic happens
-    train(sess, train_step, np.array(training_data), loss, num_epochs, ingest, egest, original_sentence)
-    test(sess, np.array(testing_data), loss, ingest, egest, original_sentence)
+
+    encs['<NULL>'] = [0] * enc_len
+    gold_sentences_list = [item.split() + (['<NULL>'] * (32 - len(item.split()))) for item in list(sentence_dict.keys())]
+
+    train(sess, train_step, np.array(training_data), gold_sentences_list[0:cut], encs, freq_report, loss, num_epochs, ingest, egest, original_sentence, enc_len)
+    test(sess, np.array(testing_data), gold_sentences_list[0:cut], encs, report_test, loss, ingest, egest, original_sentence, enc_len)
     sess.close()
 
 
@@ -212,7 +218,7 @@ def parse_sentences(corpus):
     return sentences
 
 
-def train(sess, optimizer, data, loss, num_epochs, ingest, egest, orig):
+def train(sess, optimizer, data, gold_sentences, word_dict, freq_report, loss, num_epochs, ingest, egest, orig, word_dim_size):
     print("Shape is: ")
     print(data.shape)
     for i in range(num_epochs):
@@ -220,15 +226,26 @@ def train(sess, optimizer, data, loss, num_epochs, ingest, egest, orig):
         if i % 25 == 0:
             print("Epoch: " + str(i))
             print("Loss: " + str(train_loss))
-
+        if freq_report != -1 and freq_report != -2:
+            if i % freq_report == 0:
+                find_nn(decoded, gold_sentences, word_dict, word_dim_size)
+        elif freq_report == -2:
+            continue
+        else:
+            if (i + 1) % num_epochs == 0:
+                find_nn(decoded, gold_sentences, word_dict, word_dim_size)
 
 # Testing loop
-def test(sess, data, loss, ingest, egest, orig):
+def test(sess, data, gold_sentences, word_dict, report_test, loss, ingest, egest, orig, word_dim_size):
     test_loss, _encoded, decoded = sess.run([loss, ingest, egest], feed_dict={orig: data})
     check_data = data[0]
     check_output = decoded[0]
     zipped = zip(check_data, check_output)
     result = 1 - spatial.distance.cosine(check_data[0], check_output[0])
+
+    if report_test:
+        find_nn(decoded, gold_sentences, word_dict, word_dim_size)
+
     print("cosine: " + str(result))
     print("Validation loss: " + str(test_loss))
 
@@ -243,6 +260,8 @@ def parse_args():
     parser.add_argument('--vec-dim', type=int, default=300, help='word vector dimension')
     parser.add_argument('--verbose', action='store_true', help='verbose flag')
     parser.add_argument('--hidden-size', type=int, default=300, help='size of hidden layer')
+    parser.add_argument('--freq-report', type=int, default=10, help='frequency of reporting during training')
+    parser.add_argument('--report-test', action='store_true', help='toggle reporting during testing')
 
     return parser.parse_args()
 
