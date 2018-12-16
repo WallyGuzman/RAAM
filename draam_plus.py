@@ -10,6 +10,7 @@ import argparse
 import math
 from scipy import spatial
 
+SEED = 42
 
 def main(args):
     word_vector_size = args.vec_dim
@@ -44,7 +45,7 @@ def main(args):
                         R_array.append(ingest[:, j])
                     else:
                         temp = tf.concat([ingest[:, j], ingest[:, j + 1]], axis=1)
-                        R = build_encoder(temp, hidden_size, args)
+                        R = build_encoder(temp, hidden_size, args, keep_prob)
                         R_array.append(R)
                 ingest = tf.stack(R_array, axis=1)
                 new_sen_len //= 2
@@ -57,7 +58,7 @@ def main(args):
             with tf.name_scope(str(i)):
                 R_array = []
                 for j in range(new_sen_len):
-                    R = build_decoder(egest[:, j], args)
+                    R = build_decoder(egest[:, j], args, keep_prob)
                     R_array.extend([R[:, :input_size // 2], R[:, input_size // 2:]])
                 egest = tf.stack(R_array, axis=1)
                 new_sen_len *= 2
@@ -85,27 +86,27 @@ def main(args):
     #testing_data = list(test_sentence_dict.values())
 
     # Where the magic happens
-    train(sess, train_step, np.array(training_data), loss, num_epochs, ingest, egest, original_sentence, args)
-    test(sess, np.array(testing_data), loss, ingest, egest, original_sentence, args)
+    train(sess, train_step, np.array(training_data), loss, num_epochs, ingest, egest, original_sentence, args, keep_prob)
+    test(sess, np.array(testing_data), loss, ingest, egest, original_sentence, args, keep_prob)
     sess.close()
 
 
-def build_encoder(inputs, hidden_size, args):
+def build_encoder(inputs, hidden_size, args, keep_prob):
     size = inputs.shape[1].value
     with tf.name_scope('encoder') as scope:
         encoded = make_fc(inputs, size, "E_first", args)
         encoded2 = make_fc(encoded, 3 * size // 4, "E_second", args)
     with tf.name_scope('center') as scope:
         center1 = make_fc(encoded2, size / 2, "center", args)
-        drop_out = tf.nn.dropout(center1, args.keep_prob)
+        drop_out = tf.nn.dropout(center1, keep_prob, seed=SEED)
         if args.extra_hidden:
             center2 = make_fc(drop_out, size / 2, "center2", args)
-            drop_out2 = tf.nn.dropout(center2, args.keep_prob)
+            drop_out2 = tf.nn.dropout(center2, keep_prob, seed=SEED)
             return drop_out2
     return drop_out
 
 
-def build_decoder(inputs, args):
+def build_decoder(inputs, args, keep_prob):
     size = inputs.shape[1].value
     with tf.name_scope('decoder') as scope:
         decoded = make_fc(inputs, 3 * size // 2, "D_first", args)
@@ -180,7 +181,7 @@ def parse_sentences(corpus):
     return sentences
 
 
-def train(sess, optimizer, data, loss, num_epochs, ingest, egest, orig, args):
+def train(sess, optimizer, data, loss, num_epochs, ingest, egest, orig, args, keep_prob):
     print("Shape is: ")
     print(data.shape)
     for i in range(num_epochs):
@@ -191,8 +192,8 @@ def train(sess, optimizer, data, loss, num_epochs, ingest, egest, orig, args):
 
 
 # Testing loop
-def test(sess, data, loss, ingest, egest, orig, args):
-    test_loss, _encoded, decoded = sess.run([loss, ingest, egest], feed_dict={orig: data, keep_prob: args.keep_prob})
+def test(sess, data, loss, ingest, egest, orig, args, keep_prob):
+    test_loss, _encoded, decoded = sess.run([loss, ingest, egest], feed_dict={orig: data, keep_prob: 1.0})
     check_data = data[0]
     check_output = decoded[0]
     zipped = zip(check_data, check_output)
