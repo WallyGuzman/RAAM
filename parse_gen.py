@@ -5,9 +5,11 @@ import os
 import sys
 from nltk.parse.generate import generate
 from nltk.grammar import Nonterminal
-from nltk import PCFG
+from nltk import CFG, PCFG
 from random import choice
 import argparse
+
+hashes = dict()
 
 def parse_args():
     parser = argparse.ArgumentParser(description='parse_gen.py')
@@ -48,6 +50,7 @@ def generate_sample(grammar, prod, frags):
         # terminal
         frags.append(prod)
 
+# Works for PCFG
 def generate_sentences(args):
     grammar_string = ""
 
@@ -60,10 +63,37 @@ def generate_sentences(args):
         print(grammar)
         print()
 
-    for _ in range(args.num_sent):
+    while len(hashes) < args.num_sent:
         frags = []
         generate_sample(grammar, grammar.start(), frags)
-        yield ' '.join(frags)
+        sentence = ' '.join(frags)
+        h = hash(sentence)
+        if h in hashes:
+            continue
+        else:
+            hashes[h] = 1
+            yield sentence
+
+# Revert for CFG
+# def generate_sentences(args):
+#     grammar_string = ""
+# 
+#     with open(args.grammar_file, "r") as gram_file:
+#         grammar_string = gram_file.read()
+# 
+#     grammar = CFG.fromstring(grammar_string)
+# 
+#     if args.verbose:
+#         print(grammar)
+#         print()
+# 
+#     if args.max_depth > 4:
+#         gen = generate(grammar, depth=args.max_depth, n=args.num_sent)
+#     else:
+#         gen = generate(grammar, n=args.num_sent)
+# 
+#     for sentence in gen:
+#         yield sentence
 
 if __name__ == "__main__":
     args = parse_args()

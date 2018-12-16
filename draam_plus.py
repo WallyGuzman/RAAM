@@ -9,7 +9,9 @@ import sys
 import argparse
 import math
 from scipy import spatial
+from find_nn import find_nn
 
+SEED = 42
 
 def main(args):
     word_vector_size = args.vec_dim
@@ -19,6 +21,9 @@ def main(args):
     sen_len = 32
     hidden_size = args.hidden_size
     learning_rate = args.lr
+    freq_report = args.freq_report
+    report_test = args.report_test
+    word_dim_size = word_vector_size + padding
 
     print("Vector size: %d, with padding: %d" % (word_vector_size, padding))
     print("Learning rate: %f" % learning_rate)
@@ -44,7 +49,7 @@ def main(args):
                         R_array.append(ingest[:, j])
                     else:
                         temp = tf.concat([ingest[:, j], ingest[:, j + 1]], axis=1)
-                        R = build_encoder(temp, hidden_size, args)
+                        R = build_encoder(temp, hidden_size, args, keep_prob)
                         R_array.append(R)
                 ingest = tf.stack(R_array, axis=1)
                 new_sen_len //= 2
@@ -57,7 +62,7 @@ def main(args):
             with tf.name_scope(str(i)):
                 R_array = []
                 for j in range(new_sen_len):
-                    R = build_decoder(egest[:, j], args)
+                    R = build_decoder(egest[:, j], args, keep_prob)
                     R_array.extend([R[:, :input_size // 2], R[:, input_size // 2:]])
                 egest = tf.stack(R_array, axis=1)
                 new_sen_len *= 2
@@ -74,7 +79,7 @@ def main(args):
     #        print(i)
     # print '*'*80
 
-    sentence_dict = generate_samples(vectors, corpus, word_vector_size, padding)
+    sentence_dict, word_dict = generate_samples(vectors, corpus, word_vector_size, padding)
     #test_sentence_dict = generate_samples(vectors, test_corpus, word_vector_size, padding)
 
     # use 4/5 of the sentences to train, and 1/5 to validate
@@ -83,29 +88,32 @@ def main(args):
     testing_data = list(sentence_dict.values())[cut:]
     #training_data = list(sentence_dict.values())
     #testing_data = list(test_sentence_dict.values())
+    word_dict['<NULL>'] = [0] * word_dim_size
+    gold_sentences_list = [item.split() + (['<NULL>'] * (32 - len(item.split()))) for item in list(sentence_dict.keys())]
+
 
     # Where the magic happens
-    train(sess, train_step, np.array(training_data), loss, num_epochs, ingest, egest, original_sentence, args)
-    test(sess, np.array(testing_data), loss, ingest, egest, original_sentence, args)
+    train(sess, train_step, np.array(training_data), gold_sentences_list[0:cut], word_dict, freq_report, loss, num_epochs, ingest, egest, original_sentence, word_dim_size, args, keep_prob)
+    test(sess, np.array(testing_data), gold_sentences_list[cut:], word_dict, report_test, loss, ingest, egest, original_sentence, word_dim_size, args, keep_prob)
     sess.close()
 
 
-def build_encoder(inputs, hidden_size, args):
+def build_encoder(inputs, hidden_size, args, keep_prob):
     size = inputs.shape[1].value
     with tf.name_scope('encoder') as scope:
         encoded = make_fc(inputs, size, "E_first", args)
         encoded2 = make_fc(encoded, 3 * size // 4, "E_second", args)
     with tf.name_scope('center') as scope:
         center1 = make_fc(encoded2, size / 2, "center", args)
-        drop_out = tf.nn.dropout(center1, args.keep_prob)
+        drop_out = tf.nn.dropout(center1, keep_prob, seed=SEED)
         if args.extra_hidden:
             center2 = make_fc(drop_out, size / 2, "center2", args)
-            drop_out2 = tf.nn.dropout(center2, args.keep_prob)
+            drop_out2 = tf.nn.dropout(center2, keep_prob, seed=SEED)
             return drop_out2
     return drop_out
 
 
-def build_decoder(inputs, args):
+def build_decoder(inputs, args, keep_prob):
     size = inputs.shape[1].value
     with tf.name_scope('decoder') as scope:
         decoded = make_fc(inputs, 3 * size // 2, "D_first", args)
@@ -141,7 +149,7 @@ def generate_samples(vectors, corpus, vec_size, pad):
             elif res.shape[0] > 32:
                 res = res[0:32]
             sentence_dict[sentence] = res
-    return sentence_dict
+    return sentence_dict, word_dict
 
 
 # Returns an np array of vectors representing the words of the given sentence
@@ -180,7 +188,7 @@ def parse_sentences(corpus):
     return sentences
 
 
-def train(sess, optimizer, data, loss, num_epochs, ingest, egest, orig, args):
+def train(sess, optimizer, data, gold_sentences, word_dict, freq_report, loss, num_epochs, ingest, egest, orig, word_dim_size, args, keep_prob):
     print("Shape is: ")
     print(data.shape)
     for i in range(num_epochs):
@@ -188,31 +196,44 @@ def train(sess, optimizer, data, loss, num_epochs, ingest, egest, orig, args):
         if i % 25 == 0:
             print("Epoch: " + str(i))
             print("Loss: " + str(train_loss))
+        if freq_report != -1 and freq_report != -2:
+            if i % freq_report == 0:
+                find_nn(decoded, gold_sentences, word_dict, word_dim_size)
+        elif freq_report == -2:
+            continue
+        else:
+            if (i + 1) % num_epochs == 0:
+                find_nn(decoded, gold_sentences, word_dict, word_dim_size)
 
 
 # Testing loop
-def test(sess, data, loss, ingest, egest, orig, args):
-    test_loss, _encoded, decoded = sess.run([loss, ingest, egest], feed_dict={orig: data, keep_prob: args.keep_prob})
+def test(sess, data, gold_sentences, word_dict, report_test, loss, ingest, egest, orig, word_dim_size, args, keep_prob):
+    test_loss, _encoded, decoded = sess.run([loss, ingest, egest], feed_dict={orig: data, keep_prob: 1.0})
     check_data = data[0]
     check_output = decoded[0]
     zipped = zip(check_data, check_output)
     result = 1 - spatial.distance.cosine(check_data[0], check_output[0])
+
+    if report_test:
+        find_nn(decoded, gold_sentences, word_dict, word_dim_size)
     print("cosine: " + str(result))
     print("Validation loss: " + str(test_loss))
 
 def parse_args():
     parser = argparse.ArgumentParser(description='draam_plus.py')
 
-    parser.add_argument('--lr', type=float, default=.001, help='learning rate')
+    parser.add_argument('--lr', type=float, default=.0001, help='learning rate')
     parser.add_argument('--training-file', type=str, default='data/austen.txt', help='raw training data')
     #parser.add_argument('--test-file', type=str, default='data/austen.txt', help='raw test data')
-    parser.add_argument('--vec-file', type=str, default='/u/gguzman/CS-394N/Final-Project/RAAM/data/wiki-news-300d-1M.vec', help='word vector file')
+    parser.add_argument('--vec-file', type=str, default='data/wiki-news-300d-1M.vec', help='word vector file')
     parser.add_argument('--vec-dim', type=int, default=300, help='word vector dimension')
     parser.add_argument('--verbose', action='store_true', help='verbose flag')
     parser.add_argument('--hidden-size', type=int, default=300, help='size of hidden layer')
-    parser.add_argument('--keep-prob', type=int, default=1.0, help='use dropout for each layer')
+    parser.add_argument('--keep-prob', type=int, default=0.5, help='use dropout for each layer')
     parser.add_argument('--activation', choices=['tanh', 'relu'], default='tanh', help='activation function')
     parser.add_argument('--extra-hidden', action='store_true', help='second hidden layer')
+    parser.add_argument('--freq-report', type=int, default=-1, help='frequency of word reports')
+    parser.add_argument('--report-test', action='store_true', help='word reports toggle for testing')
 
     return parser.parse_args()
 
