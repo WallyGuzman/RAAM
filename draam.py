@@ -76,7 +76,6 @@ def main(args):
     # print '*'*80
 
     sentence_dict, word_dict = generate_samples(vectors, corpus, word_vector_size, padding)
-    print(word_dict['the'].shape)
     #test_sentence_dict = generate_samples(vectors, test_corpus, word_vector_size, padding)
 
     # use 4/5 of the sentences to train, and 1/5 to validate
@@ -90,7 +89,7 @@ def main(args):
 
     # Where the magic happens
     train(sess, train_step, np.array(training_data), gold_sentences_list[0:cut], word_dict, freq_report, loss, num_epochs, ingest, egest, original_sentence, word_dim_size)
-    test(sess, np.array(testing_data), gold_sentences_list[cut:], word_dict, report_test, loss, ingest, egest, original_sentence, word_dim_size)
+    test(sess, np.array(testing_data), gold_sentences_list[cut:], word_dict, report_test, loss, ingest, egest, original_sentence, word_dim_size, args)
     sess.close()
 
 
@@ -195,7 +194,7 @@ def train(sess, optimizer, data, gold_sentences, word_dict, freq_report, loss, n
 
 
 # Testing loop
-def test(sess, data, gold_sentences, word_dict, report_test, loss, ingest, egest, orig, word_dim_size):
+def test(sess, data, gold_sentences, word_dict, report_test, loss, ingest, egest, orig, word_dim_size, args):
     test_loss, _encoded, decoded = sess.run([loss, ingest, egest], feed_dict={orig: data})
     check_data = data[0]
     check_output = decoded[0]
@@ -203,22 +202,25 @@ def test(sess, data, gold_sentences, word_dict, report_test, loss, ingest, egest
     result = 1 - spatial.distance.cosine(check_data[0], check_output[0])
 
     if report_test:
-        find_nn(decoded, gold_sentences, word_dict, word_dim_size)
+        np.save(args.word_file, decoded)
+        #find_nn(decoded, gold_sentences, word_dict, word_dim_size)
+
     print("cosine: " + str(result))
     print("Validation loss: " + str(test_loss))
 
 def parse_args():
     parser = argparse.ArgumentParser(description='draam.py')
 
-    parser.add_argument('--lr', type=float, default=.001, help='learning rate')
+    parser.add_argument('--lr', type=float, default=.0001, help='learning rate')
     parser.add_argument('--training-file', type=str, default='data/austen.txt', help='raw training data')
     #parser.add_argument('--test-file', type=str, default='data/austen.txt', help='raw test data')
-    parser.add_argument('--vec-file', type=str, default='data/wiki-news-300d-1M.vec', help='word vector file')
+    parser.add_argument('--vec-file', type=str, default='/home/ubuntu/NN/RAAM/data/wiki-news-300d-1M.vec', help='word vector file')
     parser.add_argument('--vec-dim', type=int, default=300, help='word vector dimension')
     parser.add_argument('--verbose', action='store_true', help='verbose flag')
     parser.add_argument('--hidden-size', type=int, default=300, help='size of hidden layer')
-    parser.add_argument('--freq-report', type=int, default=-1, help='frequency of word reports')
+    parser.add_argument('--freq-report', type=int, default=-2, help='frequency of word reports')
     parser.add_argument('--report-test', action='store_true', help='word reports toggle for testing')
+    parser.add_argument('--word-file', type=str, default='draam_word_vecs.npy', help='output word vector file')
 
     return parser.parse_args()
 

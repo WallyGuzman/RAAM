@@ -215,7 +215,9 @@ def test(sess, data, gold_sentences, word_dict, report_test, loss, ingest, egest
     result = 1 - spatial.distance.cosine(check_data[0], check_output[0])
 
     if report_test:
-        find_nn(decoded, gold_sentences, word_dict, word_dim_size)
+        np.save(args.word_file, decoded)
+        #find_nn(decoded, gold_sentences, word_dict, word_dim_size)
+
     print("cosine: " + str(result))
     print("Validation loss: " + str(test_loss))
 
@@ -225,15 +227,16 @@ def parse_args():
     parser.add_argument('--lr', type=float, default=.0001, help='learning rate')
     parser.add_argument('--training-file', type=str, default='data/austen.txt', help='raw training data')
     #parser.add_argument('--test-file', type=str, default='data/austen.txt', help='raw test data')
-    parser.add_argument('--vec-file', type=str, default='data/wiki-news-300d-1M.vec', help='word vector file')
+    parser.add_argument('--vec-file', type=str, default='/home/ubuntu/NN/RAAM/data/wiki-news-300d-1M.vec', help='word vector file')
     parser.add_argument('--vec-dim', type=int, default=300, help='word vector dimension')
     parser.add_argument('--verbose', action='store_true', help='verbose flag')
     parser.add_argument('--hidden-size', type=int, default=300, help='size of hidden layer')
-    parser.add_argument('--keep-prob', type=int, default=0.5, help='use dropout for each layer')
+    parser.add_argument('--keep-prob', type=float, default=0.5, help='use dropout for each layer')
     parser.add_argument('--activation', choices=['tanh', 'relu'], default='tanh', help='activation function')
     parser.add_argument('--extra-hidden', action='store_true', help='second hidden layer')
-    parser.add_argument('--freq-report', type=int, default=-1, help='frequency of word reports')
+    parser.add_argument('--freq-report', type=int, default=-2, help='frequency of word reports')
     parser.add_argument('--report-test', action='store_true', help='word reports toggle for testing')
+    parser.add_argument('--word-file', type=str, default='draam_plus_word_vecs.npy', help='output word vector file')
 
     return parser.parse_args()
 

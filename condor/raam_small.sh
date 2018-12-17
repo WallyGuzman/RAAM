@@ -3,8 +3,8 @@
 # shell script to execute Python jobs in vanilla universe
 #
 
-HIDDEN_SIZES=(100 200 300)
-DATA_SIZES=(500 1000 2000 4000 8000)
+HIDDEN_SIZES=(100 200 300 400 500)
+DATA_SIZES=(500 1000 2000 4000 8000 16000 32000 64000 128000 256000 512000 1000000)
 # NOTE: Testing with DRAAM only, for now
 DRAAM=/u/gguzman/CS-394N/Final-Project/RAAM/draam.py
 

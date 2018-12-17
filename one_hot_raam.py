@@ -18,7 +18,6 @@ def main(args):
     sen_len = 32
     encs, enc_len = produce_encodings(args.grammar_file)
     sentence_dict = enc_training_data(args.training_file, encs, sen_len)
-    print("HEre ", len(list(sentence_dict.keys())))
     #print(sentence_dict)
     hidden_size = args.hidden_size
     learning_rate = args.lr
@@ -82,21 +81,18 @@ def main(args):
     #test_sentence_dict = generate_samples(vectors, test_corpus, word_vector_size, padding)
 
     # use 4/5 of the sentences to train, and 1/5 to validate
-    print(len(sentence_dict))
     cut = (4 * len(sentence_dict.values())) // 5
-    print(cut)
     training_data = list(sentence_dict.values())[0:cut]
     testing_data = list(sentence_dict.values())[cut:]
     #training_data = list(sentence_dict.values())
     #testing_data = list(test_sentence_dict.values())
-    print(np.array(training_data)[0])
     # Where the magic happens
 
     encs['<NULL>'] = [0] * enc_len
     gold_sentences_list = [item.split() + (['<NULL>'] * (32 - len(item.split()))) for item in list(sentence_dict.keys())]
 
     train(sess, train_step, np.array(training_data), gold_sentences_list[0:cut], encs, freq_report, loss, num_epochs, ingest, egest, original_sentence, enc_len)
-    test(sess, np.array(testing_data), gold_sentences_list[0:cut], encs, report_test, loss, ingest, egest, original_sentence, enc_len)
+    test(sess, np.array(testing_data), gold_sentences_list[0:cut], encs, report_test, loss, ingest, egest, original_sentence, enc_len, args)
     sess.close()
 
 
@@ -174,7 +170,6 @@ def produce_encodings(grammar_file):
 
 def enc_training_data(corpus, encs, max_sen_len):
     in_file = open(corpus, "r")
-    print(encs)
     len_enc = len(list(encs.values())[0])
     sen_encs = {}
     i = 0
@@ -182,7 +177,6 @@ def enc_training_data(corpus, encs, max_sen_len):
         tokens = line.split(".")[0].split()[0:32]
         sen_encs[re.sub(' .\n', '', line)] = np.asarray([encs[item] for item in tokens] + [[0] * len_enc] * (max_sen_len - len(tokens)))
         i += 1
-    print(i)
     in_file.close()
 
     return sen_encs
@@ -241,15 +235,17 @@ def train(sess, optimizer, data, gold_sentences, word_dict, freq_report, loss, n
                 find_nn(decoded, gold_sentences, word_dict, word_dim_size)
 
 # Testing loop
-def test(sess, data, gold_sentences, word_dict, report_test, loss, ingest, egest, orig, word_dim_size):
+def test(sess, data, gold_sentences, word_dict, report_test, loss, ingest, egest, orig, word_dim_size, args):
     test_loss, _encoded, decoded = sess.run([loss, ingest, egest], feed_dict={orig: data})
     check_data = data[0]
     check_output = decoded[0]
     zipped = zip(check_data, check_output)
     result = 1 - spatial.distance.cosine(check_data[0], check_output[0])
+    print(decoded.shape)
 
     if report_test:
-        find_nn(decoded, gold_sentences, word_dict, word_dim_size)
+        np.save(args.word_file, decoded)
+        #find_nn(decoded, gold_sentences, word_dict, word_dim_size)
 
     print("cosine: " + str(result))
     print("Validation loss: " + str(test_loss))
@@ -257,16 +253,17 @@ def test(sess, data, gold_sentences, word_dict, report_test, loss, ingest, egest
 def parse_args():
     parser = argparse.ArgumentParser(description='draam.py')
 
-    parser.add_argument('--lr', type=float, default=.001, help='learning rate')
+    parser.add_argument('--lr', type=float, default=.0001, help='learning rate')
     parser.add_argument('--training-file', type=str, default='data/austen.txt', help='raw training data')
     parser.add_argument('--grammar-file', type=str, default='gram_file_4.txt', help='grammar file')
     #parser.add_argument('--test-file', type=str, default='data/austen.txt', help='raw test data')
-    parser.add_argument('--vec-file', type=str, default='/u/gguzman/CS-394N/Final-Project/RAAM/data/wiki-news-300d-1M.vec', help='word vector file')
+    parser.add_argument('--vec-file', type=str, default='/home/ubuntu/NN/RAAM/data/wiki-news-300d-1M.vec', help='word vector file')
     parser.add_argument('--vec-dim', type=int, default=300, help='word vector dimension')
     parser.add_argument('--verbose', action='store_true', help='verbose flag')
     parser.add_argument('--hidden-size', type=int, default=300, help='size of hidden layer')
-    parser.add_argument('--freq-report', type=int, default=10, help='frequency of reporting during training')
+    parser.add_argument('--freq-report', type=int, default=-2, help='frequency of reporting during training')
     parser.add_argument('--report-test', action='store_true', help='toggle reporting during testing')
+    parser.add_argument('--word-file', type=str, default='one_hot_word_vecs.npy', help='output word vector file')
 
     return parser.parse_args()
 
