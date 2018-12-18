@@ -1,0 +1,47 @@
+==> ./raam/random/SC/8000_400.log <==
+cosine: 0.9421596182209909
+Validation loss: 0.0041633826
+
+==> ./raam/random/PPA/8000_400.log <==
+cosine: 0.9864156863384218
+Validation loss: 0.004004329
+
+==> ./raam/recursive/SC/8000_400.log <==
+cosine: 0.9809490686642005
+Validation loss: 0.006212188
+
+==> ./raam/recursive/PPA/8000_400.log <==
+cosine: 0.9753783992339319
+Validation loss: 0.008286056
+
+==> ./draam_plus/random/SC/relu/8000_400_0.5.log <==
+cosine: 0.02102853821135553
+Validation loss: 715029900.0
+
+==> ./draam_plus/random/PPA/relu/8000_400_0.5.log <==
+cosine: -0.029240299387591318
+Validation loss: 108760250.0
+
+==> ./draam_plus/recursive/SC/relu/8000_400_0.5.log <==
+cosine: -0.03463509072159443
+Validation loss: 46363836.0
+
+==> ./draam_plus/recursive/PPA/relu/8000_400_0.5.log <==
+cosine: 0.0074645150072062405
+Validation loss: 149952220.0
+
+==> ./draam/random/SC/8000_400.log <==
+cosine: 0.7565120164773621
+Validation loss: 0.008102695
+
+==> ./draam/random/PPA/8000_400.log <==
+cosine: 0.061929214034451396
+Validation loss: 0.021564567
+
+==> ./draam/recursive/SC/8000_400.log <==
+cosine: 0.6047329304976609
+Validation loss: 0.01398015
+
+==> ./draam/recursive/PPA/8000_400.log <==
+cosine: 0.4194116233910289
+Validation loss: 0.15593381

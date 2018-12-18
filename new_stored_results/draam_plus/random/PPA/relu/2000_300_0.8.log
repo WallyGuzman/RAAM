@@ -1,0 +1,46 @@
+Vector size: 300, with padding: 150
+Learning rate: 0.000100
+Shape is: 
+(1600, 32, 450)
+Epoch: 0
+Loss: 41062000000000.0
+Epoch: 25
+Loss: 31158688000.0
+Epoch: 50
+Loss: 16584633000.0
+Epoch: 75
+Loss: 14173106000.0
+Epoch: 100
+Loss: 12698170000.0
+Epoch: 125
+Loss: 11317317000.0
+Epoch: 150
+Loss: 10472208000.0
+Epoch: 175
+Loss: 9591239000.0
+Epoch: 200
+Loss: 8528384000.0
+Epoch: 225
+Loss: 7913821700.0
+Epoch: 250
+Loss: 7343879700.0
+Epoch: 275
+Loss: 6803947500.0
+Epoch: 300
+Loss: 6418610000.0
+Epoch: 325
+Loss: 5823204000.0
+Epoch: 350
+Loss: 5417099300.0
+Epoch: 375
+Loss: 5185066500.0
+Epoch: 400
+Loss: 4828100600.0
+Epoch: 425
+Loss: 4540570600.0
+Epoch: 450
+Loss: 4271039200.0
+Epoch: 475
+Loss: 3959850200.0
+cosine: -0.010736190685801006
+Validation loss: 101208160.0

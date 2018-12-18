@@ -1,0 +1,45 @@
+Learning rate: 0.000100
+Shape is: 
+Data  (800, 32, 48)
+Epoch: 0
+Loss: 0.0049690735
+Epoch: 25
+Loss: 0.0048896004
+Epoch: 50
+Loss: 0.004758915
+Epoch: 75
+Loss: 0.004576652
+Epoch: 100
+Loss: 0.0043806266
+Epoch: 125
+Loss: 0.004213058
+Epoch: 150
+Loss: 0.004094047
+Epoch: 175
+Loss: 0.0040099802
+Epoch: 200
+Loss: 0.0039288257
+Epoch: 225
+Loss: 0.0038355037
+Epoch: 250
+Loss: 0.0037293546
+Epoch: 275
+Loss: 0.0036231673
+Epoch: 300
+Loss: 0.0035277887
+Epoch: 325
+Loss: 0.003447431
+Epoch: 350
+Loss: 0.003382472
+Epoch: 375
+Loss: 0.0033309036
+Epoch: 400
+Loss: 0.0032892104
+Epoch: 425
+Loss: 0.003255288
+Epoch: 450
+Loss: 0.0032269151
+Epoch: 475
+Loss: 0.0032026437
+cosine: 0.9941296272555786
+Validation loss: 0.0032895617
