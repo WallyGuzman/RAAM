@@ -22,3 +22,26 @@ combined_sc <- combined %>% filter(Test == "SC")
 # Plot
 ggplot(combined_ppa, aes(Data, Cosine)) + geom_line(aes(color=Type)) + facet_grid(~Hidden*Model) + ggtitle("DRAAM vs RAAM (PPA)")
 ggplot(combined_sc, aes(Data, Cosine)) + geom_line(aes(color=Type)) + facet_grid(~Hidden*Model) + ggtitle("DRAAM vs RAAM (SC)")
+
+# Read in experiment one data
+total <- read.csv("../aws_logs/combined.csv")
+total$Type <- as.factor(total$Type)
+total$Grammar <- as.factor(total$Grammar)
+
+total_ppa <- total %>% filter(Grammar == "PPA")
+total_sc <- total %>% filter(Grammar == "SC")
+
+ggplot(total_ppa, aes(Data, Cosine)) + geom_line(aes(color=Model))+ facet_grid(~Hidden) + ggtitle("RAAM vs DRAAM vs DRAAM+ (PPA)")
+ggplot(total_sc, aes(Data, Cosine)) + geom_line(aes(color=Model))+ facet_grid(~Hidden) + ggtitle("RAAM vs DRAAM vs DRAAM+ (SC)")
+
+# Read in dropout data
+dropout <- read.csv("../aws_logs/dropout.csv")
+dropout <- dropout %>% filter(Hidden == "400" & Data == "2000")
+
+ggplot(dropout, aes(Dropout, Cosine)) + geom_line(aes(color=Grammar))+ ggtitle("DRAAM+ Dropout")
+
+losses <- read.csv("../aws_logs/training_losses.csv")
+
+ggplot(losses, aes(Epoch, Loss)) + geom_line(aes(color=Model)) + ggtitle("RAAM vs DRAAM")
+
+
